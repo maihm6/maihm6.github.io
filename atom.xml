@@ -1,0 +1,42 @@
+<?xml version="1.0" encoding="utf-8"?>
+<feed xmlns="http://www.w3.org/2005/Atom">
+  <title>喜欢紫霞</title>
+  
+  
+  <link href="https://blog.maihm6.com/atom.xml" rel="self"/>
+  
+  <link href="https://blog.maihm6.com/"/>
+  <updated>2023-03-02T19:35:45.189Z</updated>
+  <id>https://blog.maihm6.com/</id>
+  
+  <author>
+    <name>Huaming</name>
+    
+  </author>
+  
+  <generator uri="https://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title>test</title>
+    <link href="https://blog.maihm6.com/2023/03/03/test/"/>
+    <id>https://blog.maihm6.com/2023/03/03/test/</id>
+    <published>2023-03-02T17:48:00.000Z</published>
+    <updated>2023-03-02T19:35:45.189Z</updated>
+    
+    <content type="html"><![CDATA[<p>测试测试</p><span id="more"></span><h1 id="测试1"><a href="#测试1" class="headerlink" title="测试1"></a>测试1</h1><h2 id="测试2"><a href="#测试2" class="headerlink" title="测试2"></a>测试2</h2><h1 id="测试1-1"><a href="#测试1-1" class="headerlink" title="测试1"></a>测试1</h1>]]></content>
+    
+    
+    <summary type="html">&lt;p&gt;测试测试&lt;/p&gt;</summary>
+    
+    
+    
+    <category term="日常" scheme="https://blog.maihm6.com/categories/%E6%97%A5%E5%B8%B8/"/>
+    
+    
+    <category term="测试" scheme="https://blog.maihm6.com/tags/%E6%B5%8B%E8%AF%95/"/>
+    
+    <category term="教学" scheme="https://blog.maihm6.com/tags/%E6%95%99%E5%AD%A6/"/>
+    
+  </entry>
+  
+</feed>
