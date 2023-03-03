@@ -1,6 +1,11 @@
 <?xml version="1.0" encoding="utf-8"?>
 <search>
   <entry>
+    <title>test1</title>
+    <url>/2023/03/03/test1/</url>
+    <content><![CDATA[]]></content>
+  </entry>
+  <entry>
     <title>test</title>
     <url>/2023/03/03/test/</url>
     <content><![CDATA[
@@ -15,6 +20,8 @@
 # 测试1
 
 更新 2023-03-03 17:06
+
+更新啦！！！
 ]]></content>
       <categories>
         <category>日常</category>
@@ -25,14 +32,209 @@
       </tags>
   </entry>
   <entry>
-    <title>test1</title>
-    <url>/2023/03/03/test1/</url>
-    <content><![CDATA[]]></content>
-  </entry>
-  <entry>
     <title>test2</title>
     <url>/2023/03/03/test2/</url>
     <content><![CDATA[]]></content>
+  </entry>
+  <entry>
+    <title>还是测试</title>
+    <url>/2023/03/04/bot/</url>
+    <content><![CDATA[
+测试测试测试
+
+<!-- more -->
+
+# 文件大小对两种边缘缓存的影响
+
+## 单边缘缓存
+
+### 文件大小不同会对哪些参数造成影响
+
+系统的总平均代价由四个部分组成，分别是fetching cost, caching cost, checking cost 和 freshness cost。
+
+#### fetching cost
+
+考虑了文件大小，那么大小不同的文件的fetching cost就不同了。因为文件未命中时，缓存终端需要从服务器数据库中获取该文件，为了保证服务质量，需要在短时间内得到该文件用来提供给用户，所以当文件大小不同时，在短时间内完成传输所需要的带宽资源就不同。
+
+#### caching cost
+
+对于caching cost，这个代价是检查更新时发现文件不是最新版从而需要更新文件带来的开销。因为并不是由于用户请求未命中引起的，所以不需要在短时间内完成传输，只需要能够在下次检查更新前完成更新即可。因此，我们认为文件大小不会对这个代价造成影响。
+
+#### checking cost
+
+对于checking cost ，我们认为没有影响。因为checking cost 只是检查文件是否是最新版本所带来的开销，与文件大小无关。
+
+#### freshness cost
+
+freshness cost 体现的是文件的时效性，是对用户的有效程度，因此也与文件大小无关。
+
+### 总代价函数的变化
+
+#### 考虑文件大小前的总代价
+
+未考虑文件大小时，总代价为
+$$
+\begin{equation}\label{eq1}\begin{aligned}
+C_{\mathcal{I}_M}^{\mathcal{L}}(\mu)= & \mu\left|\mathcal{I}_M\right| C_{c h}+\frac{\beta C_f}{\alpha}\left(1-\sum_{n \in \mathcal{I}_M} p_n\right) +\mu C_{c a} \sum_{n \in \mathcal{I}_M}\left(1-\pi_0^n(\mu)\right)+\beta C_0 \sum_{n \in \mathcal{I}_M} p_n \mathbb{E}\left[\bar{\Pi}_\mu^n\right]
+\end{aligned}\end{equation}
+$$
+将 $\bar{\Pi}_\mu^n$ 代入可得
+$$
+\begin{equation}\label{eq2}\begin{aligned}C_{I_{M}}^{\mathcal{L}}\left(\mu\right)=\frac{\beta C_{f}}{\alpha}+\left|\mathcal{I}_{M}\right|\mu C_{c h}+\mu C_{c a}\sum_{n\in I_{M}}\frac{\lambda_{n}}{\lambda_{n}+\alpha\mu}+\beta\sum_{n\in\mathcal{T}_{M}}p_{n}\left(\frac{\lambda_{n}C_{0}}{\alpha\mu}-\frac{C_{f}}{\alpha}\right)\end{aligned}\end{equation}
+$$
+由于
+$$
+C^{\mathcal{L}}_{\mathcal{I}_M\cup\{n\}}(\mu)=C^S_{\mathcal{I}_M}(\mu)-\delta^{\mathcal{L}}_n(\mu)\quad\forall n\notin\mathcal{I}_M
+$$
+所以，选取缓存文件的指标为
+$$
+\delta_{n}^{\mathcal{L}}(\mu)=\dfrac{\beta p_{n}}{\alpha}\left[C_{f}-C_{0}\dfrac{\lambda_{n}}{\mu}\right]-\mu C_{ch}-\dfrac{\mu\lambda_{n}}{\lambda_{n}+\alpha\mu}\mathrm{C}_{\mathrm{ca}},\forall n\in\mathcal{N}
+$$
+
+#### 考虑文件大小后的总代价
+
+由1.1的讨论得到，考虑了文件大小会对fetching cost造成影响。令文件大小为 $\mathbf{S}=(S_1, S_2,..,S_n)$ ,单位为bit。不失一般性，可以令 $S_1\le S_2\le ... \le S_n$ 。每个边缘缓存的容量为M bit。fetching cost与文件大小成正比，文件越大则fetching cost越大。因此，令 $C_f$ 表示单位大小的文件所需要的fetching cost，则文件n的fetching cost可以表示成 $ S_n·C_f$ 。
+
+总代价可以表示为
+$$
+\begin{aligned}
+C_{\mathcal{I}_M}^{\mathcal{L}}(\mu)= & \mu\left|\mathcal{I}_M\right| C_{c h}+\sum_{n \in \mathcal{N} \backslash \mathcal{I}_M} \frac{p_n \beta S_n C_f}{\alpha} +\mu C_{c a} \sum_{n \in \mathcal{I}_M}\left(1-\pi_0^n(\mu)\right)+\beta C_0 \sum_{n \in \mathcal{I}_M} p_n \mathbb{E}\left[\bar{\Pi}_\mu^n\right]
+\end{aligned}
+$$
+将 $\bar{\Pi}_\mu^n$ 代入可得
+$$
+\begin{aligned}
+C_{\mathcal{I}_M}^{\mathcal{L}}(\mu)= & \mu\left|\mathcal{I}_M\right| C_{c h}+\sum_{n \in \mathcal{N} \backslash \mathcal{I}_M} \frac{p_n \beta S_n C_f}{\alpha} +\mu C_{c a} \sum_{n \in \mathcal{I}_M}\frac{\alpha \mu}{\lambda_n +\alpha \mu} +\frac{ \beta C_0}{\alpha \mu} \sum_{n \in \mathcal{I}_M} p_n \lambda_n
+\end{aligned}
+$$
+则缓存指标为
+$$
+\delta_{n}^{\mathcal{L}}(\mu)=\frac{p_n \beta S_n C_f}{\alpha} - \frac{\beta C_0p_n \lambda_n}{\alpha \mu} -\mu C_{ch}-\dfrac{\mu\lambda_{n}}{\lambda_{n}+\alpha\mu}\mathrm{C}_{\mathrm{ca}},\forall n\in\mathcal{N}
+$$
+<img src="image-20230228180226303.png" alt="image-20230228180226303" style="zoom:50%;" />
+
+算法一的步骤3将指标最大的文件选取出来，因为这些文件对减少代价的效益最大。但是算法一是在所有文件大小都一致的情况下实现的，现在的模型是文件大小不一致。减少代价大的文件可能其大小也大，这样的话占用的缓存空间也大，其对总体的收益并非是最大的。
+
+我们需要制定一个新的指标，将文件大小也考虑进去。考虑单位文件大小的代价减少量，即 $\delta_{n}^{\mathcal{L}}(\mu)/S_n$ ，这样就将文件大小体现在了指标中。定义新指标 $\epsilon_{n}^{\mathcal{L}}(\mu)= \delta_{n}^{\mathcal{L}}(\mu)/S_n$ ，在每一次迭代中，需要在特定的检查速率 $ \mu$ 下确定最优的缓存方案。
+
+该问题可描述为
+
+```python
+#!/usr/bin/env python
+
+# pylint: disable=unused-argument, wrong-import-position
+
+# This program is dedicated to the public domain under the CC0 license.
+
+"""
+Simple Bot to reply to Telegram messages.
+
+First, a few handler functions are defined. Then, those functions are passed to
+the Application and registered at their respective places.
+Then, the bot is started and runs until we press Ctrl-C on the command line.
+
+Usage:
+Basic Echobot example, repeats messages.
+Press Ctrl-C on the command line or send a signal to the process to stop the
+bot.
+"""
+
+import logging
+
+from telegram import __version__ as TG_VER
+
+try:
+    from telegram import __version_info__
+except ImportError:
+    __version_info__ = (0, 0, 0, 0, 0)  # type: ignore[assignment]
+
+if __version_info__ < (20, 0, 0, "alpha", 1):
+    raise RuntimeError(
+        f"This example is not compatible with your current PTB version {TG_VER}. To view the "
+        f"{TG_VER} version of this example, "
+        f"visit https://docs.python-telegram-bot.org/en/v{TG_VER}/examples.html"
+    )
+from telegram import ForceReply, Update
+from telegram.ext import Application, CommandHandler, ContextTypes, MessageHandler, filters
+
+# Enable logging
+
+logging.basicConfig(
+    format="%(asctime)s - %(name)s - %(levelname)s - %(message)s", level=logging.INFO
+)
+logger = logging.getLogger(__name__)
+
+
+# Define a few command handlers. These usually take the two arguments update and
+
+# context.
+
+async def start(update: Update, context: ContextTypes.DEFAULT_TYPE) -> None:
+    """Send a message when the command /start is issued."""
+    user = update.effective_user
+    await update.message.reply_html(
+        rf"Hi {user.mention_html()}!",
+        reply_markup=ForceReply(selective=True),
+    )
+
+
+async def help_command(update: Update, context: ContextTypes.DEFAULT_TYPE) -> None:
+    """Send a message when the command /help is issued."""
+    await update.message.reply_text("Help!")
+
+
+async def echo(update: Update, context: ContextTypes.DEFAULT_TYPE) -> None:
+    """Echo the user message."""
+    await update.message.reply_text(update.message.text)
+
+
+def main() -> None:
+    """Start the bot."""
+    # Create the Application and pass it your bot's token.
+    TOKEN = 'your token'
+    proxy_url = 'http://127.0.0.1:7890'
+    application = Application.builder().token(TOKEN).proxy_url(proxy_url).build()
+
+    # on different commands - answer in Telegram
+    application.add_handler(CommandHandler("start", start))
+    application.add_handler(CommandHandler("help", help_command))
+    
+    # on non command i.e message - echo the message on Telegram
+    application.add_handler(MessageHandler(filters.TEXT & ~filters.COMMAND, echo))
+    
+    # Run the bot until the user presses Ctrl-C
+    application.run_polling()
+
+
+if __name__ == "__main__":
+    main()
+```
+
+$$
+\begin{equation*}\label{eq20}
+e=mc^2
+\end{equation*}
+$$
+
+
+
+$$
+\begin{equation}\label{eq30}\tag{i}
+e=mc^2
+\end{equation}
+$$
+
+
+著名的质能方程 $\eqref{eq30}$ 由爱因斯坦提出 ...
+
+]]></content>
+      <categories>
+        <category>科研</category>
+      </categories>
+      <tags>
+        <tag>测试</tag>
+        <tag>毕设</tag>
+      </tags>
   </entry>
   <entry>
     <title>archives</title>
@@ -44,6 +246,8 @@
     <title>关于我</title>
     <url>/about/index.html</url>
     <content><![CDATA[
+更新于 2023-03-04 01:57
+
 你好，我是 Huaming，下面是关于我的一些介绍：
 
 - 一名准研究生，喜欢瞎捣鼓一些东西。之后更新……
@@ -52,6 +256,7 @@
 
 - 这个博客是我介绍自己的一种方式，我会时不时更新这个“关于我”。
 - 这个博客是我记录生活的场所，会在这里分享一些日常琐事、学习心得和人生感悟等。
+- 这个博客目前还出在测试阶段，博主也正在学习hexo+next的相关操作中。
 
 ## 网络分身
 
@@ -68,6 +273,11 @@
     <url>/categories/index.html</url>
     <content><![CDATA[
 ]]></content>
+  </entry>
+  <entry>
+    <title>tags</title>
+    <url>/tags/index.html</url>
+    <content><![CDATA[]]></content>
   </entry>
   <entry>
     <title>友链页面</title>
@@ -110,10 +320,5 @@
 
 {% endnote %}
 ]]></content>
-  </entry>
-  <entry>
-    <title>tags</title>
-    <url>/tags/index.html</url>
-    <content><![CDATA[]]></content>
   </entry>
 </search>
