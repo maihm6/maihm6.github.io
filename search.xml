@@ -35,6 +35,12 @@
     <content><![CDATA[]]></content>
   </entry>
   <entry>
+    <title>archives</title>
+    <url>/archives/index.html</url>
+    <content><![CDATA[
+]]></content>
+  </entry>
+  <entry>
     <title>关于我</title>
     <url>/about/index.html</url>
     <content><![CDATA[
@@ -55,12 +61,6 @@
 | ------------: | :----------------------------------------------------------- |
 | 常用邮箱📫     |                    maihm6@163.com                    |
 | Github💻     |         [maihm6](https://github.com/maihm6)         |
-]]></content>
-  </entry>
-  <entry>
-    <title>archives</title>
-    <url>/archives/index.html</url>
-    <content><![CDATA[
 ]]></content>
   </entry>
   <entry>
