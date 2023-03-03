@@ -1,11 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <search>
   <entry>
-    <title>test1</title>
-    <url>/2023/03/03/test1/</url>
-    <content><![CDATA[]]></content>
-  </entry>
-  <entry>
     <title>test</title>
     <url>/2023/03/03/test/</url>
     <content><![CDATA[
@@ -30,6 +25,11 @@
         <tag>测试</tag>
         <tag>教学</tag>
       </tags>
+  </entry>
+  <entry>
+    <title>test1</title>
+    <url>/2023/03/03/test1/</url>
+    <content><![CDATA[]]></content>
   </entry>
   <entry>
     <title>test2</title>
@@ -119,12 +119,14 @@ $$
 
 该问题可描述为
 
-```python
+{% note info no-icon telegram bot %}
+{% code %}
+
 #!/usr/bin/env python
 
 # pylint: disable=unused-argument, wrong-import-position
 
-# This program is dedicated to the public domain under the CC0 license.
+# This program is dedicated to the public domainunder the CC0 license.
 
 """
 Simple Bot to reply to Telegram messages.
@@ -191,24 +193,29 @@ async def echo(update: Update, context: ContextTypes.DEFAULT_TYPE) -> None:
 def main() -> None:
     """Start the bot."""
     # Create the Application and pass it your bot's token.
-    TOKEN = 'your token'
-    proxy_url = 'http://127.0.0.1:7890'
-    application = Application.builder().token(TOKEN).proxy_url(proxy_url).build()
+​    TOKEN = 'your token'
+​    proxy_url = 'http://127.0.0.1:7890'
+​    application = Application.builder().token(TOKEN).proxy_url(proxy_url).build()
 
     # on different commands - answer in Telegram
-    application.add_handler(CommandHandler("start", start))
-    application.add_handler(CommandHandler("help", help_command))
-    
-    # on non command i.e message - echo the message on Telegram
-    application.add_handler(MessageHandler(filters.TEXT & ~filters.COMMAND, echo))
-    
-    # Run the bot until the user presses Ctrl-C
-    application.run_polling()
+​    application.add_handler(CommandHandler("start", start))
+​    application.add_handler(CommandHandler("help", help_command))
+​    
+​    # on non command i.e message - echo the message on Telegram
+​    application.add_handler(MessageHandler(filters.TEXT & ~filters.COMMAND, echo))
+​    
+​    # Run the bot until the user presses Ctrl-C
+​    application.run_polling()
 
 
 if __name__ == "__main__":
     main()
-```
+    
+    
+
+{% endcode %}
+{% endnote %}
+
 
 $$
 \begin{equation*}\label{eq20}
@@ -224,8 +231,21 @@ e=mc^2
 \end{equation}
 $$
 
-
 著名的质能方程 $\eqref{eq30}$ 由爱因斯坦提出 ...
+
+
+
+{% note info no-icon This is a summary %}
+{% code %}
+code block in note tag
+code block in note tag
+code block in note tag
+{% endcode %}
+{% endnote %}
+
+  
+
+  
 
 ]]></content>
       <categories>
@@ -237,12 +257,6 @@ $$
       </tags>
   </entry>
   <entry>
-    <title>archives</title>
-    <url>/archives/index.html</url>
-    <content><![CDATA[
-]]></content>
-  </entry>
-  <entry>
     <title>关于我</title>
     <url>/about/index.html</url>
     <content><![CDATA[
@@ -250,7 +264,7 @@ $$
 
 你好，我是 Huaming，下面是关于我的一些介绍：
 
-- 一名准研究生，喜欢瞎捣鼓一些东西。之后更新……
+- 一名准研究生，喜欢瞎捣鼓一些东西。等毕设搞完之后更新……
 
 下面是关于这篇博客的一些介绍：
 
@@ -262,10 +276,26 @@ $$
 
 如果你想要网络上的其他平台找到我，有下面这些方式：👇
 
-| 平台 | 账号 |
-| ------------: | :----------------------------------------------------------- |
-| 常用邮箱📫     |                    maihm6@163.com                    |
-| Github💻     |         [maihm6](https://github.com/maihm6)         |
+<table>
+  <tr>
+    <th>平台</th>
+    <th>账号</th>
+  </tr>
+  <tr>
+    <td>常用邮箱📫</td>
+    <td>maihm6@163.com</td>
+  </tr>
+  <tr>
+    <td>Github💻</td>
+    <td><a hrel='https://github.com.maihm6'>maihm6</a></td>
+  </tr>
+</table>
+]]></content>
+  </entry>
+  <entry>
+    <title>archives</title>
+    <url>/archives/index.html</url>
+    <content><![CDATA[
 ]]></content>
   </entry>
   <entry>
