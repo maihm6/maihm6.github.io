@@ -14,6 +14,7 @@
 
 # 测试1
 
+更新 2023-03-03 17:06
 ]]></content>
       <categories>
         <category>日常</category>
@@ -24,14 +25,18 @@
       </tags>
   </entry>
   <entry>
-    <title>archives</title>
-    <url>/archives/index.html</url>
-    <content><![CDATA[
-]]></content>
+    <title>test2</title>
+    <url>/2023/03/03/test2/</url>
+    <content><![CDATA[]]></content>
   </entry>
   <entry>
-    <title>分类</title>
-    <url>/categories/index.html</url>
+    <title>test1</title>
+    <url>/2023/03/03/test1/</url>
+    <content><![CDATA[]]></content>
+  </entry>
+  <entry>
+    <title>archives</title>
+    <url>/archives/index.html</url>
     <content><![CDATA[
 ]]></content>
   </entry>
@@ -56,6 +61,12 @@
 | ------------: | :----------------------------------------------------------- |
 | 常用邮箱📫     |                    maihm6@163.com                    |
 | Github💻     |         [maihm6](https://github.com/maihm6)         |
+]]></content>
+  </entry>
+  <entry>
+    <title>分类</title>
+    <url>/categories/index.html</url>
+    <content><![CDATA[
 ]]></content>
   </entry>
   <entry>
