@@ -299,17 +299,6 @@ code block in note tag
 ]]></content>
   </entry>
   <entry>
-    <title>分类</title>
-    <url>/categories/index.html</url>
-    <content><![CDATA[
-]]></content>
-  </entry>
-  <entry>
-    <title>tags</title>
-    <url>/tags/index.html</url>
-    <content><![CDATA[]]></content>
-  </entry>
-  <entry>
     <title>友链页面</title>
     <url>/links/index.html</url>
     <content><![CDATA[
@@ -349,6 +338,17 @@ code block in note tag
 - 网站标志：https://maihm6.com/images/apple-touch-icon-next.png
 
 {% endnote %}
+]]></content>
+  </entry>
+  <entry>
+    <title>tags</title>
+    <url>/tags/index.html</url>
+    <content><![CDATA[]]></content>
+  </entry>
+  <entry>
+    <title>分类</title>
+    <url>/categories/index.html</url>
+    <content><![CDATA[
 ]]></content>
   </entry>
 </search>
