@@ -2,18 +2,18 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   
   <url>
-    <loc>https://blog.maihm6.com/2023/03/04/bot/</loc>
+    <loc>https://blog.maihm6.com/about/index.html</loc>
     
-    <lastmod>2023-03-03</lastmod>
+    <lastmod>2023-03-04</lastmod>
     
     <changefreq>monthly</changefreq>
     <priority>0.6</priority>
   </url>
   
   <url>
-    <loc>https://blog.maihm6.com/about/index.html</loc>
+    <loc>https://blog.maihm6.com/2023/03/04/bot/</loc>
     
-    <lastmod>2023-03-03</lastmod>
+    <lastmod>2023-03-04</lastmod>
     
     <changefreq>monthly</changefreq>
     <priority>0.6</priority>
@@ -56,6 +56,15 @@
   </url>
   
   <url>
+    <loc>https://blog.maihm6.com/categories/index.html</loc>
+    
+    <lastmod>2022-08-15</lastmod>
+    
+    <changefreq>monthly</changefreq>
+    <priority>0.6</priority>
+  </url>
+  
+  <url>
     <loc>https://blog.maihm6.com/archives/index.html</loc>
     
     <lastmod>2022-08-15</lastmod>
@@ -66,15 +75,6 @@
   
   <url>
     <loc>https://blog.maihm6.com/tags/index.html</loc>
-    
-    <lastmod>2022-08-15</lastmod>
-    
-    <changefreq>monthly</changefreq>
-    <priority>0.6</priority>
-  </url>
-  
-  <url>
-    <loc>https://blog.maihm6.com/categories/index.html</loc>
     
     <lastmod>2022-08-15</lastmod>
     

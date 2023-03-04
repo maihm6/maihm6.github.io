@@ -42,84 +42,75 @@
     <content><![CDATA[
 测试测试测试
 
+test
+
+test
+
+Test
+
 <!-- more -->
 
-# 文件大小对两种边缘缓存的影响
+## 购买一个云服务器
 
-## 单边缘缓存
+[点击查看教程](https://blog.csdn.net/u014148630/article/details/100536745?ops_request_misc=%257B%2522request%255Fid%2522%253A%2522167180113416800213095525%2522%252C%2522scm%2522%253A%252220140713.130102334.pc%255Fall.%2522%257D&request_id=167180113416800213095525&biz_id=0&utm_medium=distribute.pc_search_result.none-task-blog-2~all~first_rank_ecpm_v1~hot_rank-9-100536745-null-null.142^v68^wechat_v2,201^v4^add_ask,213^v2^t3_esquery_v2&utm_term=%E8%85%BE%E8%AE%AF%E4%BA%91%E6%9C%8D%E5%8A%A1%E5%99%A8&spm=1018.2226.3001.4187)
 
-### 文件大小不同会对哪些参数造成影响
+## python环境的配置
 
-系统的总平均代价由四个部分组成，分别是fetching cost, caching cost, checking cost 和 freshness cost。
+因为使用的相关库python-telegram-bot只支持python3.7/3.8/3.9，如果服务器没有python3或者版本不是这三个，那么先卸载python3，再选择一个版本安装，这里我们选择python3.9。
 
-#### fetching cost
+[点击查看教程](https://blog.csdn.net/qq_28770757/article/details/109684720)
 
-考虑了文件大小，那么大小不同的文件的fetching cost就不同了。因为文件未命中时，缓存终端需要从服务器数据库中获取该文件，为了保证服务质量，需要在短时间内得到该文件用来提供给用户，所以当文件大小不同时，在短时间内完成传输所需要的带宽资源就不同。
+**注意：如果make时报错 Could not import runpy module ，则需要重新解压然后在./configure之前修改配置文件（[参考链接](https://blog.51cto.com/u_15127605/4365898)）**
 
-#### caching cost
+在指定目录，检查配置环境前，先进入解压后的目录
 
-对于caching cost，这个代价是检查更新时发现文件不是最新版从而需要更新文件带来的开销。因为并不是由于用户请求未命中引起的，所以不需要在短时间内完成传输，只需要能够在下次检查更新前完成更新即可。因此，我们认为文件大小不会对这个代价造成影响。
+```shell
+vim configure
+```
 
-#### checking cost
+删除enable_optimizations
 
-对于checking cost ，我们认为没有影响。因为checking cost 只是检查文件是否是最新版本所带来的开销，与文件大小无关。
+然后执行配置检查，编译安装
 
-#### freshness cost
+```shell
+./configure --prefix=/opt/python396
 
-freshness cost 体现的是文件的时效性，是对用户的有效程度，因此也与文件大小无关。
+make && make install
+```
 
-### 总代价函数的变化
+接着是安装相关库
 
-#### 考虑文件大小前的总代价
+```shell
+pip install python-telegram-bot --pre
+```
 
-未考虑文件大小时，总代价为
-$$
-\begin{equation}\label{eq1}\begin{aligned}
-C_{\mathcal{I}_M}^{\mathcal{L}}(\mu)= & \mu\left|\mathcal{I}_M\right| C_{c h}+\frac{\beta C_f}{\alpha}\left(1-\sum_{n \in \mathcal{I}_M} p_n\right) +\mu C_{c a} \sum_{n \in \mathcal{I}_M}\left(1-\pi_0^n(\mu)\right)+\beta C_0 \sum_{n \in \mathcal{I}_M} p_n \mathbb{E}\left[\bar{\Pi}_\mu^n\right]
-\end{aligned}\end{equation}
-$$
-将 $\bar{\Pi}_\mu^n$ 代入可得
-$$
-\begin{equation}\label{eq2}\begin{aligned}C_{I_{M}}^{\mathcal{L}}\left(\mu\right)=\frac{\beta C_{f}}{\alpha}+\left|\mathcal{I}_{M}\right|\mu C_{c h}+\mu C_{c a}\sum_{n\in I_{M}}\frac{\lambda_{n}}{\lambda_{n}+\alpha\mu}+\beta\sum_{n\in\mathcal{T}_{M}}p_{n}\left(\frac{\lambda_{n}C_{0}}{\alpha\mu}-\frac{C_{f}}{\alpha}\right)\end{aligned}\end{equation}
-$$
-由于
-$$
-C^{\mathcal{L}}_{\mathcal{I}_M\cup\{n\}}(\mu)=C^S_{\mathcal{I}_M}(\mu)-\delta^{\mathcal{L}}_n(\mu)\quad\forall n\notin\mathcal{I}_M
-$$
-所以，选取缓存文件的指标为
-$$
-\delta_{n}^{\mathcal{L}}(\mu)=\dfrac{\beta p_{n}}{\alpha}\left[C_{f}-C_{0}\dfrac{\lambda_{n}}{\mu}\right]-\mu C_{ch}-\dfrac{\mu\lambda_{n}}{\lambda_{n}+\alpha\mu}\mathrm{C}_{\mathrm{ca}},\forall n\in\mathcal{N}
-$$
+该库相关操作请参考GitHub上的说明（[点击查看](https://github.com/python-telegram-bot/python-telegram-bot)）
 
-#### 考虑文件大小后的总代价
+## 使用clash作为代理
 
-由1.1的讨论得到，考虑了文件大小会对fetching cost造成影响。令文件大小为 $\mathbf{S}=(S_1, S_2,..,S_n)$ ,单位为bit。不失一般性，可以令 $S_1\le S_2\le ... \le S_n$ 。每个边缘缓存的容量为M bit。fetching cost与文件大小成正比，文件越大则fetching cost越大。因此，令 $C_f$ 表示单位大小的文件所需要的fetching cost，则文件n的fetching cost可以表示成 $ S_n·C_f$ 。
+从以下教程中选择一个即可，我选择的是第一个教程：
 
-总代价可以表示为
-$$
-\begin{aligned}
-C_{\mathcal{I}_M}^{\mathcal{L}}(\mu)= & \mu\left|\mathcal{I}_M\right| C_{c h}+\sum_{n \in \mathcal{N} \backslash \mathcal{I}_M} \frac{p_n \beta S_n C_f}{\alpha} +\mu C_{c a} \sum_{n \in \mathcal{I}_M}\left(1-\pi_0^n(\mu)\right)+\beta C_0 \sum_{n \in \mathcal{I}_M} p_n \mathbb{E}\left[\bar{\Pi}_\mu^n\right]
-\end{aligned}
-$$
-将 $\bar{\Pi}_\mu^n$ 代入可得
-$$
-\begin{aligned}
-C_{\mathcal{I}_M}^{\mathcal{L}}(\mu)= & \mu\left|\mathcal{I}_M\right| C_{c h}+\sum_{n \in \mathcal{N} \backslash \mathcal{I}_M} \frac{p_n \beta S_n C_f}{\alpha} +\mu C_{c a} \sum_{n \in \mathcal{I}_M}\frac{\alpha \mu}{\lambda_n +\alpha \mu} +\frac{ \beta C_0}{\alpha \mu} \sum_{n \in \mathcal{I}_M} p_n \lambda_n
-\end{aligned}
-$$
-则缓存指标为
-$$
-\delta_{n}^{\mathcal{L}}(\mu)=\frac{p_n \beta S_n C_f}{\alpha} - \frac{\beta C_0p_n \lambda_n}{\alpha \mu} -\mu C_{ch}-\dfrac{\mu\lambda_{n}}{\lambda_{n}+\alpha\mu}\mathrm{C}_{\mathrm{ca}},\forall n\in\mathcal{N}
-$$
-<img src="image-20230228180226303.png" alt="image-20230228180226303" style="zoom:50%;" />
+[点击查看教程1](https://www.ahdark.com/som/1643.shtml)
 
-算法一的步骤3将指标最大的文件选取出来，因为这些文件对减少代价的效益最大。但是算法一是在所有文件大小都一致的情况下实现的，现在的模型是文件大小不一致。减少代价大的文件可能其大小也大，这样的话占用的缓存空间也大，其对总体的收益并非是最大的。
+[点击查看教程2](https://maintao.com/2021/use-clash-as-a-proxy/)
 
-我们需要制定一个新的指标，将文件大小也考虑进去。考虑单位文件大小的代价减少量，即 $\delta_{n}^{\mathcal{L}}(\mu)/S_n$ ，这样就将文件大小体现在了指标中。定义新指标 $\epsilon_{n}^{\mathcal{L}}(\mu)= \delta_{n}^{\mathcal{L}}(\mu)/S_n$ ，在每一次迭代中，需要在特定的检查速率 $ \mu$ 下确定最优的缓存方案。
+[点击查看教程3](https://juejin.cn/post/7054941050216906760)
 
-该问题可描述为
+**通过VPN订阅链接获取yaml文件的方法：订阅链接+&flag==clash**
 
-{% note info no-icon telegram bot %}
+## 服务器后台运行.py文件
+
+[点击查看教程](https://www.cnblogs.com/baby123/p/6477429.html)
+
+## 申请一个bot
+
+[点击查看教程](https://blog.csdn.net/whatday/article/details/113747294?ops_request_misc=%257B%2522request%255Fid%2522%253A%2522167180323716800180646039%2522%252C%2522scm%2522%253A%252220140713.130102334.pc%255Fblog.%2522%257D&request_id=167180323716800180646039&biz_id=0&utm_medium=distribute.pc_search_result.none-task-blog-2~blog~first_rank_ecpm_v1~rank_v31_ecpm-14-113747294-null-null.blog_rank_default&utm_term=telegram%20bot&spm=1018.2226.3001.4450)
+
+## 测试test.py文件
+
+源码如下，这是一个自动重复你发送消息的机器人，只需将第67行的token改为你的机器人token即可
+
+{% note info no-icon telegrambot.py %}
 {% code %}
 
 #!/usr/bin/env python
@@ -216,6 +207,15 @@ if __name__ == "__main__":
 {% endcode %}
 {% endnote %}
 
+运行结果如下：
+
+![1](1.jpeg)
+
+教程到这里就结束了，快开始你的机器人之旅吧～
+
+
+
+
 
 $$
 \begin{equation*}\label{eq20}
@@ -257,6 +257,18 @@ code block in note tag
       </tags>
   </entry>
   <entry>
+    <title>分类</title>
+    <url>/categories/index.html</url>
+    <content><![CDATA[
+]]></content>
+  </entry>
+  <entry>
+    <title>archives</title>
+    <url>/archives/index.html</url>
+    <content><![CDATA[
+]]></content>
+  </entry>
+  <entry>
     <title>关于我</title>
     <url>/about/index.html</url>
     <content><![CDATA[
@@ -276,26 +288,21 @@ code block in note tag
 
 如果你想要网络上的其他平台找到我，有下面这些方式：👇
 
-<table>
+<table style="text-align:center">
   <tr>
-    <th>平台</th>
+    <th width=50%>平台</th>
     <th>账号</th>
   </tr>
   <tr>
     <td>常用邮箱📫</td>
-    <td>maihm6@163.com</td>
+    <td><a href="mailto:maihm6@163.com">maihm6@163.com</a></td>
   </tr>
   <tr>
     <td>Github💻</td>
     <td><a hrel='https://github.com.maihm6'>maihm6</a></td>
   </tr>
 </table>
-]]></content>
-  </entry>
-  <entry>
-    <title>archives</title>
-    <url>/archives/index.html</url>
-    <content><![CDATA[
+
 ]]></content>
   </entry>
   <entry>
@@ -344,11 +351,5 @@ code block in note tag
     <title>tags</title>
     <url>/tags/index.html</url>
     <content><![CDATA[]]></content>
-  </entry>
-  <entry>
-    <title>分类</title>
-    <url>/categories/index.html</url>
-    <content><![CDATA[
-]]></content>
   </entry>
 </search>
