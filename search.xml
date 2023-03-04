@@ -257,12 +257,6 @@ code block in note tag
       </tags>
   </entry>
   <entry>
-    <title>分类</title>
-    <url>/categories/index.html</url>
-    <content><![CDATA[
-]]></content>
-  </entry>
-  <entry>
     <title>archives</title>
     <url>/archives/index.html</url>
     <content><![CDATA[
@@ -306,6 +300,17 @@ code block in note tag
 ]]></content>
   </entry>
   <entry>
+    <title>分类</title>
+    <url>/categories/index.html</url>
+    <content><![CDATA[
+]]></content>
+  </entry>
+  <entry>
+    <title>tags</title>
+    <url>/tags/index.html</url>
+    <content><![CDATA[]]></content>
+  </entry>
+  <entry>
     <title>友链页面</title>
     <url>/links/index.html</url>
     <content><![CDATA[
@@ -346,10 +351,5 @@ code block in note tag
 
 {% endnote %}
 ]]></content>
-  </entry>
-  <entry>
-    <title>tags</title>
-    <url>/tags/index.html</url>
-    <content><![CDATA[]]></content>
   </entry>
 </search>
