@@ -1,6 +1,37 @@
 <?xml version="1.0" encoding="utf-8"?>
 <search>
   <entry>
+    <title>test</title>
+    <url>/2023/03/03/test/</url>
+    <content><![CDATA[
+测试测试
+
+<!-- more -->
+
+# 测试1
+
+## 测试2
+
+# 测试1
+
+更新 2023-03-03 17:06
+
+更新啦！！！
+]]></content>
+      <categories>
+        <category>日常</category>
+      </categories>
+      <tags>
+        <tag>测试</tag>
+        <tag>教学</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>test2</title>
+    <url>/2023/03/03/test2/</url>
+    <content><![CDATA[]]></content>
+  </entry>
+  <entry>
     <title>test1</title>
     <url>/2023/03/03/test1/</url>
     <content><![CDATA[]]></content>
@@ -221,50 +252,13 @@ code block in note tag
         <category>科研</category>
       </categories>
       <tags>
+        <tag>测试</tag>
         <tag>毕设</tag>
-        <tag>测试</tag>
       </tags>
-  </entry>
-  <entry>
-    <title>test</title>
-    <url>/2023/03/03/test/</url>
-    <content><![CDATA[
-测试测试
-
-<!-- more -->
-
-# 测试1
-
-## 测试2
-
-# 测试1
-
-更新 2023-03-03 17:06
-
-更新啦！！！
-]]></content>
-      <categories>
-        <category>日常</category>
-      </categories>
-      <tags>
-        <tag>测试</tag>
-        <tag>教学</tag>
-      </tags>
-  </entry>
-  <entry>
-    <title>test2</title>
-    <url>/2023/03/03/test2/</url>
-    <content><![CDATA[]]></content>
   </entry>
   <entry>
     <title>archives</title>
     <url>/archives/index.html</url>
-    <content><![CDATA[
-]]></content>
-  </entry>
-  <entry>
-    <title>分类</title>
-    <url>/categories/index.html</url>
     <content><![CDATA[
 ]]></content>
   </entry>
@@ -311,11 +305,6 @@ code block in note tag
 ]]></content>
   </entry>
   <entry>
-    <title>tags</title>
-    <url>/tags/index.html</url>
-    <content><![CDATA[]]></content>
-  </entry>
-  <entry>
     <title>关于我</title>
     <url>/about/index.html</url>
     <content><![CDATA[
@@ -350,6 +339,17 @@ code block in note tag
   </tr>
 </table>
 
+]]></content>
+  </entry>
+  <entry>
+    <title>tags</title>
+    <url>/tags/index.html</url>
+    <content><![CDATA[]]></content>
+  </entry>
+  <entry>
+    <title>分类</title>
+    <url>/categories/index.html</url>
+    <content><![CDATA[
 ]]></content>
   </entry>
 </search>
