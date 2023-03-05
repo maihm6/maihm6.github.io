@@ -1,39 +1,8 @@
 <?xml version="1.0" encoding="utf-8"?>
 <search>
   <entry>
-    <title>test</title>
-    <url>/2023/03/03/test/</url>
-    <content><![CDATA[
-测试测试
-
-<!-- more -->
-
-# 测试1
-
-## 测试2
-
-# 测试1
-
-更新 2023-03-03 17:06
-
-更新啦！！！
-]]></content>
-      <categories>
-        <category>日常</category>
-      </categories>
-      <tags>
-        <tag>测试</tag>
-        <tag>教学</tag>
-      </tags>
-  </entry>
-  <entry>
     <title>test1</title>
     <url>/2023/03/03/test1/</url>
-    <content><![CDATA[]]></content>
-  </entry>
-  <entry>
-    <title>test2</title>
-    <url>/2023/03/03/test2/</url>
     <content><![CDATA[]]></content>
   </entry>
   <entry>
@@ -252,9 +221,40 @@ code block in note tag
         <category>科研</category>
       </categories>
       <tags>
-        <tag>测试</tag>
         <tag>毕设</tag>
+        <tag>测试</tag>
       </tags>
+  </entry>
+  <entry>
+    <title>test</title>
+    <url>/2023/03/03/test/</url>
+    <content><![CDATA[
+测试测试
+
+<!-- more -->
+
+# 测试1
+
+## 测试2
+
+# 测试1
+
+更新 2023-03-03 17:06
+
+更新啦！！！
+]]></content>
+      <categories>
+        <category>日常</category>
+      </categories>
+      <tags>
+        <tag>测试</tag>
+        <tag>教学</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>test2</title>
+    <url>/2023/03/03/test2/</url>
+    <content><![CDATA[]]></content>
   </entry>
   <entry>
     <title>archives</title>
@@ -263,52 +263,10 @@ code block in note tag
 ]]></content>
   </entry>
   <entry>
-    <title>关于我</title>
-    <url>/about/index.html</url>
-    <content><![CDATA[
-更新于 2023-03-04 01:57
-
-你好，我是 Huaming，下面是关于我的一些介绍：
-
-- 一名准研究生，喜欢瞎捣鼓一些东西。等毕设搞完之后更新……
-
-下面是关于这篇博客的一些介绍：
-
-- 这个博客是我介绍自己的一种方式，我会时不时更新这个“关于我”。
-- 这个博客是我记录生活的场所，会在这里分享一些日常琐事、学习心得和人生感悟等。
-- 这个博客目前还出在测试阶段，博主也正在学习hexo+next的相关操作中。
-
-## 网络分身
-
-如果你想要网络上的其他平台找到我，有下面这些方式：👇
-
-<table style="text-align:center">
-  <tr>
-    <th width=50%>平台</th>
-    <th>账号</th>
-  </tr>
-  <tr>
-    <td>常用邮箱📫</td>
-    <td><a href="mailto:maihm6@163.com">maihm6@163.com</a></td>
-  </tr>
-  <tr>
-    <td>Github💻</td>
-    <td><a hrel='https://github.com.maihm6'>maihm6</a></td>
-  </tr>
-</table>
-
-]]></content>
-  </entry>
-  <entry>
     <title>分类</title>
     <url>/categories/index.html</url>
     <content><![CDATA[
 ]]></content>
-  </entry>
-  <entry>
-    <title>tags</title>
-    <url>/tags/index.html</url>
-    <content><![CDATA[]]></content>
   </entry>
   <entry>
     <title>友链页面</title>
@@ -350,6 +308,48 @@ code block in note tag
 - 网站标志：https://maihm6.com/images/apple-touch-icon-next.png
 
 {% endnote %}
+]]></content>
+  </entry>
+  <entry>
+    <title>tags</title>
+    <url>/tags/index.html</url>
+    <content><![CDATA[]]></content>
+  </entry>
+  <entry>
+    <title>关于我</title>
+    <url>/about/index.html</url>
+    <content><![CDATA[
+更新于 2023-03-04 01:57
+
+你好，我是 Huaming，下面是关于我的一些介绍：
+
+- 一名准研究生，喜欢瞎捣鼓一些东西。等毕设搞完之后更新……
+
+下面是关于这篇博客的一些介绍：
+
+- 这个博客是我介绍自己的一种方式，我会时不时更新这个“关于我”。
+- 这个博客是我记录生活的场所，会在这里分享一些日常琐事、学习心得和人生感悟等。
+- 这个博客目前还出在测试阶段，博主也正在学习hexo+next的相关操作中。
+
+## 网络分身
+
+如果你想要网络上的其他平台找到我，有下面这些方式：👇
+
+<table style="text-align:center">
+  <tr>
+    <th width=50%>平台</th>
+    <th>账号</th>
+  </tr>
+  <tr>
+    <td>常用邮箱📫</td>
+    <td><a href="mailto:maihm6@163.com">maihm6@163.com</a></td>
+  </tr>
+  <tr>
+    <td>Github💻</td>
+    <td><a hrel='https://github.com.maihm6'>maihm6</a></td>
+  </tr>
+</table>
+
 ]]></content>
   </entry>
 </search>
