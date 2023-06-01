@@ -308,15 +308,14 @@ code block in note tag
     <title>关于我</title>
     <url>/about/index.html</url>
     <content><![CDATA[
-更新于 2023-03-04 01:57
+更新于 2023-06-02 01:23
 
 你好，我是 Huaming，下面是关于我的一些介绍：
 
-- 一名准研究生，喜欢瞎捣鼓一些东西。等毕设搞完之后更新……
+- 一名准研究生，平时喜欢唱、跳、Rap和篮球。
 
 下面是关于这篇博客的一些介绍：
 
-- 这个博客是我介绍自己的一种方式，我会时不时更新这个“关于我”。
 - 这个博客是我记录生活的场所，会在这里分享一些日常琐事、学习心得和人生感悟等。
 - 这个博客目前还出在测试阶段，博主也正在学习hexo+next的相关操作中。
 
@@ -338,7 +337,6 @@ code block in note tag
     <td><a hrel='https://github.com.maihm6'>maihm6</a></td>
   </tr>
 </table>
-
 ]]></content>
   </entry>
   <entry>
