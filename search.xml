@@ -257,20 +257,20 @@ code block in note tag
       </tags>
   </entry>
   <entry>
-    <title>post</title>
+    <title>Two-Sum Protocol</title>
     <url>/2023/07/17/post/</url>
     <content><![CDATA[
 # 2-Sum Protocol
 
 ## 协议内容
 
-假设再一次通信中有三个人，分别为Alice，Bob和Carol。其中，Alice和Bob为发送方，Carol为接收方，需要接收Alice和Bob数据的模和。Alice和Bob各自拥有一个qubits$\mathcal{A}_1$和$\mathcal{A}2$，其中两个量子比特的联合态处于最大纠缠态$|\Phi\rangle:=\frac{1}{\sqrt{2}}\sum_{i=0}^{1}|i\rangle\otimes|i\rangle$。那么2-sum protocol由下面步骤给出：
+假设在一次通信中有三个人，分别为Alice，Bob和Carol。其中，Alice和Bob为发送方，Carol为接收方，需要接收Alice和Bob数据的模和。Alice和Bob各自拥有一个qubits$\mathcal{A}_1$和$\mathcal{A}2$，其中两个量子比特的联合态处于最大纠缠态$|\Phi\rangle:=\frac{1}{\sqrt{2}}\sum_{i=0}^{1}|i\rangle\otimes|i\rangle$。那么2-sum protocol由下面步骤给出：
 
 步骤1：Alice和Bob分别对$\mathcal{A}_1$*和*$\mathcal{A}2$进行$W(a,b)$和$W(c,d)$操作。其中$a,b,c,d\in\mathbb{Z}_2$，$W(a,b)=\mathsf{X}^a\mathsf{Z}^b$。
 
 $\mathsf{X},\mathsf{Z}$分别对应Pauli操作
 $$
-\mathsf{X}:=\sum_{i=0}^1|i+1\rangle\langle i|,\mathsf{Z}:=\sum_{i=0}^1(-1)^i|i\rangle\langle i|.
+\begin{equation}\mathsf{X}:=\sum_{i=0}^1|i+1\rangle\langle i|,\mathsf{Z}:=\sum_{i=0}^1(-1)^i|i\rangle\langle i|.\end{equation}
 $$
 步骤2：Alice和Bob分别将qubits和发送给Carol
 
@@ -292,11 +292,11 @@ $$
 $$
 又因为对一个量子比特进行两次W(a,b)操作满足如下等式
 $$
-\mathsf W(a_1,b_1)\mathsf W(a_2,b_2)=(-1)^{b_1a_2}\mathsf W(a_1+a_2,b_1+b_2).
+\begin{equation}\mathsf W(a_1,b_1)\mathsf W(a_2,b_2)=(-1)^{b_1a_2}\mathsf W(a_1+a_2,b_1+b_2).\end{equation}
 $$
 因此，Alice和Bob分别对$\mathcal{A}_1$*和*$\mathcal{A}2$进行$W(a,b)$和$W(c,d)$操作，等价于Alice对$\mathcal{A}_1$分别进行了W(a,b)和$(-1)^{cd}W(c,d)$操作，即
 $$
-(-1)^{cd}W(a,b)W(c,d)=(-1)^{bd}W(a+c,b+d).
+\begin{equation}(-1)^{cd}W(a,b)W(c,d)=(-1)^{bd}W(a+c,b+d).\end{equation}
 $$
 这里的$(-1)^{bd}W(a+c,b+d)$可以看成是$W(a+c,b+d)$操作，正负可以理解为只是相位不同，对结果不会产生影响。从式$\eqref{1}$中也可以看出，两个符号会抵消掉，所以$(e,f)$就是$(a+c,b+d)$，整个传输过程仅需要两个qubits。
 
@@ -324,7 +324,7 @@ Pauli操作中的X操作实际上是将$|0\rangle$和$|1\rangle$位置互换，Z
         <category>学习笔记</category>
       </categories>
       <tags>
-        <tag>量子通信</tag>
+        <tag>量子通信, 信息论与编码</tag>
       </tags>
   </entry>
   <entry>
