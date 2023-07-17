@@ -279,7 +279,7 @@ $$
 测量操作$\mathbf{M}_{\mathbb{Z}^2_2}$为
 $$
 \begin{equation}\mathbf{M}_{\mathbb{Z}_2^2}:=\{M_{(a,b)}\mid a,b\in\mathbb{Z}_2\},\ \ \text{where}\ \ M_{(a,b)}:=(\mathsf{I}\otimes\mathsf{W}(a,b))|\Phi\rangle\langle\Phi|(\mathsf{I}\otimes\mathsf{W}(a,b)^\dagger).
-\label{1}\tag{2}
+\label{1}
 \end{equation}
 $$
 因为在其中一个量子比特上的操作可以转化到另一个量子比特上，即
