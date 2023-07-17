@@ -270,7 +270,7 @@ code block in note tag
 
 $\mathsf{X},\mathsf{Z}$分别对应Pauli操作
 $$
-\begin{equation}\mathsf{X}:=\sum_{i=0}^1|i+1\rangle\langle i|,\mathsf{Z}:=\sum_{i=0}^1(-1)^i|i\rangle\langle i|.\end{equation}
+\begin{equation}\mathsf{X}:=\sum_{i=0}^1|i+1\rangle\langle i|,\mathsf{Z}:=\sum_{i=0}^1(-1)^i|i\rangle\langle i|.\tag{1}\end{equation}
 $$
 步骤2：Alice和Bob分别将qubits和发送给Carol
 
@@ -279,7 +279,7 @@ $$
 测量操作$\mathbf{M}_{\mathbb{Z}^2_2}$为
 $$
 \begin{equation}\mathbf{M}_{\mathbb{Z}_2^2}:=\{M_{(a,b)}\mid a,b\in\mathbb{Z}_2\},\ \ \text{where}\ \ M_{(a,b)}:=(\mathsf{I}\otimes\mathsf{W}(a,b))|\Phi\rangle\langle\Phi|(\mathsf{I}\otimes\mathsf{W}(a,b)^\dagger).
-\label{1}
+\label{1}\tag{2}
 \end{equation}
 $$
 因为在其中一个量子比特上的操作可以转化到另一个量子比特上，即
@@ -288,21 +288,21 @@ $$
 (\mathsf{I}\otimes\mathsf{W}(a,b))|\Phi\rangle & =\left(\mathsf{W}(a,b)^{\top}\otimes\mathsf{I}\right)|\Phi\rangle   \\
 &=\left(\mathsf{W}(a,b)^\dagger\otimes\mathsf{I}\right)|\Phi\rangle  \\
 &=(-1)^{ab}(\mathsf{W}(a,b)\otimes\mathsf{I})|\Phi\rangle.
-\end{aligned}
+\end{aligned}\tag{3}
 $$
 又因为对一个量子比特进行两次W(a,b)操作满足如下等式
 $$
-\begin{equation}\mathsf W(a_1,b_1)\mathsf W(a_2,b_2)=(-1)^{b_1a_2}\mathsf W(a_1+a_2,b_1+b_2).\end{equation}
+\begin{equation}\mathsf W(a_1,b_1)\mathsf W(a_2,b_2)=(-1)^{b_1a_2}\mathsf W(a_1+a_2,b_1+b_2).\tag{4}\end{equation}
 $$
 因此，Alice和Bob分别对$\mathcal{A}_1$*和*$\mathcal{A}2$进行$W(a,b)$和$W(c,d)$操作，等价于Alice对$\mathcal{A}_1$分别进行了W(a,b)和$(-1)^{cd}W(c,d)$操作，即
 $$
-\begin{equation}(-1)^{cd}W(a,b)W(c,d)=(-1)^{bd}W(a+c,b+d).\end{equation}
+\begin{equation}(-1)^{cd}W(a,b)W(c,d)=(-1)^{bd}W(a+c,b+d).\tag{5}\end{equation}
 $$
 这里的$(-1)^{bd}W(a+c,b+d)$可以看成是$W(a+c,b+d)$操作，正负可以理解为只是相位不同，对结果不会产生影响。从式$\eqref{1}$中也可以看出，两个符号会抵消掉，所以$(e,f)$就是$(a+c,b+d)$，整个传输过程仅需要两个qubits。
 
 具体过程如图1所示
 
-![image-20230716162707545](https://github.com/maihm6/CSDN/blob/main/image-20230716162707545.png)
+![two-sum](https://github.com/maihm6/Picture/blob/main/Blog/two-sum.png)
 
 
 ## 举例分析
