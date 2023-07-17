@@ -2,6 +2,15 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   
   <url>
+    <loc>https://blog.maihm6.com/2023/07/17/post/</loc>
+    
+    <lastmod>2023-07-17</lastmod>
+    
+    <changefreq>monthly</changefreq>
+    <priority>0.6</priority>
+  </url>
+  
+  <url>
     <loc>https://blog.maihm6.com/about/index.html</loc>
     
     <lastmod>2023-06-01</lastmod>
@@ -85,7 +94,7 @@
 
   <url>
     <loc>https://blog.maihm6.com/</loc>
-    <lastmod>2023-06-01</lastmod>
+    <lastmod>2023-07-17</lastmod>
     <changefreq>daily</changefreq>
     <priority>1.0</priority>
   </url>
@@ -93,21 +102,28 @@
   
   <url>
     <loc>https://blog.maihm6.com/tags/%E6%B5%8B%E8%AF%95/</loc>
-    <lastmod>2023-06-01</lastmod>
+    <lastmod>2023-07-17</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.2</priority>
   </url>
   
   <url>
     <loc>https://blog.maihm6.com/tags/%E6%95%99%E5%AD%A6/</loc>
-    <lastmod>2023-06-01</lastmod>
+    <lastmod>2023-07-17</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.2</priority>
   </url>
   
   <url>
     <loc>https://blog.maihm6.com/tags/%E6%AF%95%E8%AE%BE/</loc>
-    <lastmod>2023-06-01</lastmod>
+    <lastmod>2023-07-17</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.2</priority>
+  </url>
+  
+  <url>
+    <loc>https://blog.maihm6.com/tags/%E9%87%8F%E5%AD%90%E9%80%9A%E4%BF%A1/</loc>
+    <lastmod>2023-07-17</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.2</priority>
   </url>
@@ -116,14 +132,21 @@
   
   <url>
     <loc>https://blog.maihm6.com/categories/%E6%97%A5%E5%B8%B8/</loc>
-    <lastmod>2023-06-01</lastmod>
+    <lastmod>2023-07-17</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.2</priority>
   </url>
   
   <url>
     <loc>https://blog.maihm6.com/categories/%E7%A7%91%E7%A0%94/</loc>
-    <lastmod>2023-06-01</lastmod>
+    <lastmod>2023-07-17</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.2</priority>
+  </url>
+  
+  <url>
+    <loc>https://blog.maihm6.com/categories/%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0/</loc>
+    <lastmod>2023-07-17</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.2</priority>
   </url>
