@@ -1,35 +1,12 @@
 <?xml version="1.0" encoding="utf-8"?>
 <search>
   <entry>
-    <title>test</title>
-    <url>/2023/03/03/test/</url>
-    <content><![CDATA[
-测试测试
-
-<!-- more -->
-
-# 测试1
-
-## 测试2
-
-# 测试1
-
-更新 2023-03-03 17:06
-
-更新啦！！！
-]]></content>
-      <categories>
-        <category>日常</category>
-      </categories>
-      <tags>
-        <tag>测试</tag>
-        <tag>教学</tag>
-      </tags>
-  </entry>
-  <entry>
     <title>test2</title>
     <url>/2023/03/03/test2/</url>
     <content><![CDATA[]]></content>
+      <categories>
+        <category>日常生活</category>
+      </categories>
   </entry>
   <entry>
     <title>test1</title>
@@ -37,16 +14,10 @@
     <content><![CDATA[]]></content>
   </entry>
   <entry>
-    <title>还是测试</title>
+    <title>如何创建一个属于自己的Telegram Bot›</title>
     <url>/2023/03/04/bot/</url>
     <content><![CDATA[
-测试测试测试
-
-test
-
-test
-
-Test
+Telegram bot是telegram上区别于WeChat的一个重要功能，其自由度高、功能强大。通过程序的设计，可以使得bot满足于各种需求，比如自动回复、线上点单和小游戏等。由于对于这项功能比较好奇，本人在毕设的关键时期还花了不少时间来研究bot的使用，用这篇文章记录从零到实现“Hello World”的全过程。
 
 <!-- more -->
 
@@ -209,39 +180,9 @@ if __name__ == "__main__":
 
 运行结果如下：
 
-![1](1.jpeg)
+![1](https://raw.githubusercontent.com/maihm6/Picture/main/Blog/1.jpeg)
 
 教程到这里就结束了，快开始你的机器人之旅吧～
-
-
-
-
-
-$$
-\begin{equation*}\label{eq20}
-e=mc^2
-\end{equation*}
-$$
-
-
-
-$$
-\begin{equation}\label{eq30}\tag{i}
-e=mc^2
-\end{equation}
-$$
-
-著名的质能方程 $\eqref{eq30}$ 由爱因斯坦提出 ...
-
-
-
-{% note info no-icon This is a summary %}
-{% code %}
-code block in note tag
-code block in note tag
-code block in note tag
-{% endcode %}
-{% endnote %}
 
   
 
@@ -249,38 +190,40 @@ code block in note tag
 
 ]]></content>
       <categories>
-        <category>科研</category>
+        <category>技术分享</category>
       </categories>
       <tags>
-        <tag>测试</tag>
-        <tag>毕设</tag>
+        <tag>Telegram Bot</tag>
       </tags>
   </entry>
   <entry>
     <title>Two-Sum Protocol</title>
-    <url>/2023/07/17/post/</url>
+    <url>/2023/07/17/Two-Sum/</url>
     <content><![CDATA[
-# 2-Sum Protocol
+Two-Sum 协议是在最基本的多对一通信模型——两对一模型中利用量子纠缠资源来进行编码的方案，该方案相比于经典的方案达到了2倍的量子密集编码增益。同时，该协议还是N-Sum Box Abstraction中的最简单情况，为其提供了研究思路与方法。
+
+<!-- more -->
 
 ## 协议内容
 
-假设在一次通信中有三个人，分别为Alice，Bob和Carol。其中，Alice和Bob为发送方，Carol为接收方，需要接收Alice和Bob数据的模和。Alice和Bob各自拥有一个qubits$\mathcal{A}_1$和$\mathcal{A}2$，其中两个量子比特的联合态处于最大纠缠态$|\Phi\rangle:=\frac{1}{\sqrt{2}}\sum_{i=0}^{1}|i\rangle\otimes|i\rangle$。那么2-sum protocol由下面步骤给出：
+假设在一次通信中有三方，分别为Alice，Bob和Carol。其中，Alice和Bob为发送方，Carol为接收方，需要接收Alice和Bob数据的模和。Alice和Bob各自拥有一个量子比特$\mathcal{A}_1$和$\mathcal{A}_2$，其中两个量子比特的联合态处于最大纠缠态$|\Phi\rangle:=\frac{1}{\sqrt{2}}\sum_{i=0}^{1}|i\rangle\otimes|i\rangle$。那么Two-Sum Protocol由下面步骤给出[^1]：
 
 步骤1：Alice和Bob分别对$\mathcal{A}_1$*和*$\mathcal{A}2$进行$W(a,b)$和$W(c,d)$操作。其中$a,b,c,d\in\mathbb{Z}_2$，$W(a,b)=\mathsf{X}^a\mathsf{Z}^b$。
 
-$\mathsf{X},\mathsf{Z}$分别对应Pauli操作
+$\mathsf{X},\mathsf{Z}$分别对应Pauli门操作
 $$
 \begin{equation}\mathsf{X}:=\sum_{i=0}^1|i+1\rangle\langle i|,\mathsf{Z}:=\sum_{i=0}^1(-1)^i|i\rangle\langle i|.\tag{1}\end{equation}
 $$
-步骤2：Alice和Bob分别将qubits和发送给Carol
+步骤2：Alice和Bob分别将量子比特和发送给Carol
 
-步骤3：Carol对接收到的量子系统进行PVM $\mathbf{M}_{\mathbb{Z}^2_\mathcal{l}}$测量并得到测量结果$(e,f)$。
+步骤3：Carol对接收到的量子系统进行投影值测量（PVM，Projection-Valued Measure），并得到测量结果$(e,f)$。
 
-测量操作$\mathbf{M}_{\mathbb{Z}^2_2}$为
+PVM测量的算符$\mathbf{M}_{\mathbb{Z}^2_2}$为
 $$
-\begin{equation}\mathbf{M}_{\mathbb{Z}_2^2}:=\{M_{(a,b)}\mid a,b\in\mathbb{Z}_2\},\ \ \text{where}\ \ M_{(a,b)}:=(\mathsf{I}\otimes\mathsf{W}(a,b))|\Phi\rangle\langle\Phi|(\mathsf{I}\otimes\mathsf{W}(a,b)^\dagger).
+\begin{aligned}&\mathbf{M}_{\mathbb{Z}_2^2}:=\{M_{(a,b)}\mid a,b\in\mathbb{Z}_2\},\\ \text{where}\ &\ M_{(a,b)}:=(\mathsf{I}\otimes\mathsf{W}(a,b))|\Phi\rangle\langle\Phi|(\mathsf{I}\otimes\mathsf{W}(a,b)^\dagger).
+\end{aligned}
+\tag{2}
 \label{1}
-\end{equation}
 $$
 因为在其中一个量子比特上的操作可以转化到另一个量子比特上，即
 $$
@@ -298,11 +241,11 @@ $$
 $$
 \begin{equation}(-1)^{cd}W(a,b)W(c,d)=(-1)^{bd}W(a+c,b+d).\tag{5}\end{equation}
 $$
-这里的$(-1)^{bd}W(a+c,b+d)$可以看成是$W(a+c,b+d)$操作，正负可以理解为只是相位不同，对结果不会产生影响。从式$\eqref{1}$中也可以看出，两个符号会抵消掉，所以$(e,f)$就是$(a+c,b+d)$，整个传输过程仅需要两个qubits。
+这里的$(-1)^{bd}W(a+c,b+d)$可以看成是$W(a+c,b+d)$操作，正负可以理解为只是相位不同，对结果不会产生影响。从式$\eqref{1}$中也可以看出，两个符号会抵消掉，所以$(e,f)$就是$(a+c,b+d)$，整个传输过程仅需要两个量子比特。
 
 具体过程如图1所示
 
-![two-sum](https://github.com/maihm6/Picture/blob/main/Blog/two-sum.png?raw=true)
+![图1 two-sum方案示意图[^2]](https://github.com/maihm6/Picture/blob/main/Blog/two-sum.png?raw=true)
 
 
 ## 举例分析
@@ -314,17 +257,41 @@ Pauli操作中的X操作实际上是将$|0\rangle$和$|1\rangle$位置互换，Z
 1. Alice进行$W(a,b)$操作后，系统状态变为$|\varphi\rangle=\frac{1}{\sqrt{2}}(|00\rangle-|11\rangle)$。
 2. Bob进行操作后，系统状态变为$|\varphi\rangle=-\frac{1}{\sqrt{2}}(|01\rangle+|10\rangle)$。
 
-经过Alice和Bob的操作后，系统状态变为$|\varphi\rangle=-\frac{1}{\sqrt{2}}(|01\rangle+|10\rangle)$，这个结果与只有Alice进行$(-1)^{bd}W(a+c,b+d)=-W(1,0)$操作是一致的。Carol对接收到的量子系统进行测量后得到结果为$(e,f)=(1,0)=(a+c,b+d)$。因此，这个过程中只用了两个qubits就将(a+c,b+d)给发送出去。
+经过Alice和Bob的操作后，系统状态变为$|\varphi\rangle=-\frac{1}{\sqrt{2}}(|01\rangle+|10\rangle)$，这个结果与只有Alice进行$(-1)^{bd}W(a+c,b+d)=-W(1,0)$操作是一致的。Carol对接收到的量子系统进行测量后得到结果为$(e,f)=(1,0)=(a+c,b+d)$。因此，这个过程中只用了两个量子比特就将(a+c,b+d)给发送出去。
 
 ## 总结
 
-2-sum protocol利用了量子系统中的量子纠缠这一特性，将原先传统通信中需要4bits才能传输的内容用两个qubits就能传输完。这在求和通信网络中将提高通信效率，提升网络性能，对研究更加复杂的$\sum-QMAC$具有重要意义。
+Two-Sum Protocol利用了量子系统中的量子纠缠这一特性，将原先传统通信中需要4bits才能传输的内容用两个qubits就能传输完。这在求和通信网络中将提高通信效率，提升网络性能，对研究更加复杂的$\sum-QMAC$具有重要意义。
+
+## 参考
+
+[^1]:Song S, Hayashi M. Capacity of quantum symmetric private information retrieval with collusion of all but one of servers[J]. IEEE Journal on Selected Areas in Information Theory, 2021, 2(1): 380-390.
+[^2]:Allaix M, Lu Y, Yao Y, et al. N-Sum Box: An Abstraction for Linear Computation over Many-to-one Quantum Networks[J]. arXiv preprint arXiv:2304.07561, 2023.
 ]]></content>
       <categories>
         <category>学习笔记</category>
       </categories>
       <tags>
-        <tag>量子通信, 信息论与编码</tag>
+        <tag>量子通信</tag>
+        <tag>信息论与编码</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>使用Hexo+Next搭建个人博客</title>
+    <url>/2023/03/03/Hexo_Next/</url>
+    <content><![CDATA[
+待补充
+
+<!-- more -->
+
+待补充
+]]></content>
+      <categories>
+        <category>技术分享</category>
+      </categories>
+      <tags>
+        <tag>Hexo</tag>
+        <tag>Next</tag>
       </tags>
   </entry>
   <entry>
@@ -379,16 +346,16 @@ Pauli操作中的X操作实际上是将$|0\rangle$和$|1\rangle$位置互换，Z
     <title>关于我</title>
     <url>/about/index.html</url>
     <content><![CDATA[
-更新于 2023-06-02 01:23
+更新于 2023-07-18 10:43
 
 你好，我是 Huaming，下面是关于我的一些介绍：
 
-- 一名准研究生，平时喜欢唱、跳、Rap和篮球。
+- 一名准研究生，平时喜欢唱唱歌、打打篮球和健健身。
 
 下面是关于这篇博客的一些介绍：
 
-- 这个博客是我记录生活的场所，会在这里分享一些日常琐事、学习心得和人生感悟等。
-- 这个博客目前还出在测试阶段，博主也正在学习hexo+next的相关操作中。
+- 目前的想法是用来存放我的学习笔记，致力于打造属于自己的知识库。
+- 除此之外，还会分享一些日常生活的感悟和瞎捣鼓的“技术”。
 
 ## 网络分身
 
