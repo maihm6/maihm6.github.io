@@ -208,7 +208,7 @@ Two-Sum 协议是在最基本的多对一通信模型——两对一模型中利
 
 假设在一次通信中有三方，分别为Alice，Bob和Carol。其中，Alice和Bob为发送方，Carol为接收方，需要接收Alice和Bob数据的模和。Alice和Bob各自拥有一个量子比特$\mathcal{A}_1$和$\mathcal{A}_2$，其中两个量子比特的联合态处于最大纠缠态$|\Phi\rangle:=\frac{1}{\sqrt{2}}\sum_{i=0}^{1}|i\rangle\otimes|i\rangle$。那么Two-Sum Protocol由下面步骤给出[^1]：
 
-步骤1：Alice和Bob分别对$\mathcal{A}_1$*和*$\mathcal{A}2$进行$W(a,b)$和$W(c,d)$操作。其中$a,b,c,d\in\mathbb{Z}_2$，$W(a,b)=\mathsf{X}^a\mathsf{Z}^b$。
+步骤1：Alice和Bob分别对$\mathcal{A}_1$*和*$\mathcal{A}2$进行$\mathsf{W}(a,b)$和$\mathsf{W}(c,d)$操作。其中$a,b,c,d\in\mathbb{Z}_2$，$\mathsf{W}(a,b)=\mathsf{X}^a\mathsf{Z}^b$。
 
 $\mathsf{X},\mathsf{Z}$分别对应Pauli门操作
 $$
@@ -220,8 +220,7 @@ $$
 
 PVM测量的算符$\mathbf{M}_{\mathbb{Z}^2_2}$为
 $$
-\begin{aligned}&\mathbf{M}_{\mathbb{Z}_2^2}:=\{M_{(a,b)}\mid a,b\in\mathbb{Z}_2\},\\ \text{where}\ &\ M_{(a,b)}:=(\mathsf{I}\otimes\mathsf{W}(a,b))|\Phi\rangle\langle\Phi|(\mathsf{I}\otimes\mathsf{W}(a,b)^\dagger).
-\end{aligned}
+\mathbf{M}_{\mathbb{Z}_2^2}:=\{M_{(a,b)}:=(\mathsf{I}\otimes\mathsf{W}(a,b))|\Phi\rangle\langle\Phi|(\mathsf{I}\otimes\mathsf{W}(a,b)^\dagger)\mid a,b\in\mathbb{Z}_2\}.
 \tag{2}
 \label{1}
 $$
@@ -233,15 +232,15 @@ $$
 &=(-1)^{ab}(\mathsf{W}(a,b)\otimes\mathsf{I})|\Phi\rangle.
 \end{aligned}\tag{3}
 $$
-又因为对一个量子比特进行两次W(a,b)操作满足如下等式
+又因为对一个量子比特进行两次$\mathsf{W}(a,b)$操作满足如下等式
 $$
 \begin{equation}\mathsf W(a_1,b_1)\mathsf W(a_2,b_2)=(-1)^{b_1a_2}\mathsf W(a_1+a_2,b_1+b_2).\tag{4}\end{equation}
 $$
-因此，Alice和Bob分别对$\mathcal{A}_1$*和*$\mathcal{A}2$进行$W(a,b)$和$W(c,d)$操作，等价于Alice对$\mathcal{A}_1$分别进行了W(a,b)和$(-1)^{cd}W(c,d)$操作，即
+因此，Alice和Bob分别对$\mathcal{A}_1$和$\mathcal{A}_2$进行$\mathsf{W}(a,b)$和$\mathsf{W}(c,d)$操作，等价于Alice对$\mathcal{A}_1$分别进行了$\mathsf{W}(a,b)$和$(-1)^{cd}\mathsf{W}(c,d)$操作，即
 $$
-\begin{equation}(-1)^{cd}W(a,b)W(c,d)=(-1)^{bd}W(a+c,b+d).\tag{5}\end{equation}
+\begin{equation}(-1)^{cd}\mathsf{W}(a,b)\mathsf{W}(c,d)=(-1)^{c(b+d)}\mathsf{W}(a+c,b+d).\tag{5}\end{equation}
 $$
-这里的$(-1)^{bd}W(a+c,b+d)$可以看成是$W(a+c,b+d)$操作，正负可以理解为只是相位不同，对结果不会产生影响。从式$\eqref{1}$中也可以看出，两个符号会抵消掉，所以$(e,f)$就是$(a+c,b+d)$，整个传输过程仅需要两个量子比特。
+这里的$(-1)^{c(b+d)}\mathsf{W}(a+c,b+d)$可以看成是$\mathsf{W}(a+c,b+d)$操作，正负可以理解为只是相位不同，对结果不会产生影响。从式$\eqref{1}$中也可以看出，两个符号会抵消掉，所以$(e,f)$就是$(a+c,b+d)$，整个传输过程仅需要两个量子比特。
 
 具体过程如图1所示
 
@@ -252,16 +251,16 @@ $$
 
 假设Alice要发送的信息为$(a,b)=(0,1)$，Bob需要发送的数据为$(c,d)=(1,1)$，量子系统的初始状态为$|\varphi\rangle=|\Phi\rangle=\frac{1}{\sqrt{2}}(|00\rangle+|11\rangle)$。
 
-Pauli操作中的X操作实际上是将$|0\rangle$和$|1\rangle$位置互换，Z操作则是将$|1\rangle$的相位翻转。操作过程为：
+Pauli操作中的$\mathsf{X}$操作实际上是将$|0\rangle$和$|1\rangle$位置互换，$\mathsf{Z}$操作则是将$|1\rangle$的相位翻转。操作过程为：
 
 1. Alice进行$W(a,b)$操作后，系统状态变为$|\varphi\rangle=\frac{1}{\sqrt{2}}(|00\rangle-|11\rangle)$。
 2. Bob进行操作后，系统状态变为$|\varphi\rangle=-\frac{1}{\sqrt{2}}(|01\rangle+|10\rangle)$。
 
-经过Alice和Bob的操作后，系统状态变为$|\varphi\rangle=-\frac{1}{\sqrt{2}}(|01\rangle+|10\rangle)$，这个结果与只有Alice进行$(-1)^{bd}W(a+c,b+d)=-W(1,0)$操作是一致的。Carol对接收到的量子系统进行测量后得到结果为$(e,f)=(1,0)=(a+c,b+d)$。因此，这个过程中只用了两个量子比特就将(a+c,b+d)给发送出去。
+经过Alice和Bob的操作后，系统状态变为$|\varphi\rangle=-\frac{1}{\sqrt{2}}(|01\rangle+|10\rangle)$，这个结果与只有Alice进行$(-1)^{c(b+d)}\mathsf{W}(a+c,b+d)=-\mathsf{W}(1,0)$操作是一致的。Carol对接收到的量子系统进行测量后得到结果为$(e,f)=(1,0)=(a+c,b+d)$。因此，这个过程中只用了两个量子比特就将$(a+c,b+d)$给发送出去。
 
 ## 总结
 
-Two-Sum Protocol利用了量子系统中的量子纠缠这一特性，将原先传统通信中需要4bits才能传输的内容用两个qubits就能传输完。这在求和通信网络中将提高通信效率，提升网络性能，对研究更加复杂的$\sum-QMAC$具有重要意义。
+Two-Sum Protocol利用了量子系统中的量子纠缠这一特性，将原先传统通信中需要4 bits才能传输的内容用2 qubits就能传输完。这在求和通信网络中将提高通信效率，提升网络性能，对研究更加复杂的$\sum-QMAC$具有重要意义。
 
 ## 参考
 
@@ -273,7 +272,9 @@ Two-Sum Protocol利用了量子系统中的量子纠缠这一特性，将原先�
       </categories>
       <tags>
         <tag>量子通信</tag>
-        <tag>信息论与编码</tag>
+        <tag>量子计算</tag>
+        <tag>信息论</tag>
+        <tag>编码</tag>
       </tags>
   </entry>
   <entry>
