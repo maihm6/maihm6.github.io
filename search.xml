@@ -32,7 +32,7 @@
     <content><![CDATA[]]></content>
   </entry>
   <entry>
-    <title>如何创建一个属于自己的Telegram Bot›</title>
+    <title>如何创建一个属于自己的Telegram Bot</title>
     <url>/2023/03/04/bot/</url>
     <content><![CDATA[
 Telegram bot是telegram上区别于WeChat的一个重要功能，其自由度高、功能强大。通过程序的设计，可以使得bot满足于各种需求，比如自动回复、线上点单和小游戏等。由于对于这项功能比较好奇，本人在毕设的关键时期还花了不少时间来研究bot的使用，用这篇文章记录从零到实现“Hello World”的全过程。
@@ -293,6 +293,115 @@ Two-Sum Protocol利用了量子系统中的量子纠缠这一特性，将原先�
         <tag>量子计算</tag>
         <tag>信息论</tag>
         <tag>编码</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>HairCLIPv2（ICCV2023）华为云复现教程</title>
+    <url>/2023/12/14/HairCLIPv2/</url>
+    <content><![CDATA[
+[[paper](https://openaccess.thecvf.com/content/ICCV2023/papers/Wei_HairCLIPv2_Unifying_Hair_Editing_via_Proxy_Feature_Blending_ICCV_2023_paper.pdf)]  [[code](https://github.com/wty-ustc/HairCLIPv2)]
+
+<!-- more -->
+
+## 配置环境
+
+### **华为云配置**
+
+pytorch1.10-cuda10.2-cudnn7-ubuntu18.04   **GPU**
+
+### **下载代码**
+
+```shell
+git init
+
+git clone https://github.com/wty-ustc/HairCLIPv2.git
+```
+
+### **配置环境**
+
+```shell
+cd HairCLIPv2 # 进入到文件夹HairCLIPv2下
+
+pip install ftfy regex tqdm matplotlib jupyter ipykernel opencv-python scikit-image kornia==0.6.7 face-alignment==1.3.5 dlib==19.22.1
+
+pip install git+https://github.com/openai/CLIP.git
+
+pip install Ninja
+```
+
+### **将运行过程中需要的文件提前放到指定文件夹**
+
+因为华为云只能打开文件夹`/home/ma-user/work`，但是这些文件要放置在文件夹`/home/ma-user/.cache/torch/hub/checkpoints`下。因此，只能通过终端移动
+
+创建一个新文件夹放置这些文件
+
+```shell
+mkdir Model_Weight
+
+cd Model_Weight
+```
+
+将下面文件（附录补充提供了百度网盘链接）上传到文件夹`/HairCLIPv2/Model_Weight`中
+
+resnet18-5c106cde.pth
+
+vgg16-397923af.pth
+
+s3fd-619a316812.pth
+
+3DFAN4-4a694010b9.zip
+
+depth-6c4283c0e0.zip
+
+运行下面代码将所有文件复制到指定文件夹
+
+```shell
+cp * /home/ma-user/.cache/torch/hub/checkpoints/
+```
+
+Note：可能会显示目标文件夹不存在，这时候先运行文件`hairclip_v2_demo.ipynb`来产生目标文件。
+
+### **将预训练模型放在文件夹pretrained_models下**
+
+bald_proxy.pt
+
+ffhq.pt
+
+seg.pth
+
+shape_predictor_68_face_landmarks.dat
+
+sketch_proxy.pt
+
+直接上传即可
+
+## 运行代码
+
+打开`hairclip_v2_demo.ipynb`，选择内核`PyTorch-1.10.2`，点击运行即可
+
+**若想测试其他图片**
+
+**首先将图片对齐。**将jpg格式的图片上传至文件`/HairCLIPv2/test_images/unaligned_img`，运行代码
+
+```shell
+python scripts/align_face.py
+```
+
+运行结束后在文件夹`/HairCLIPv2/test_images/aligned_img`中得到已对齐的图片。
+
+**把对齐图片放到源文件中。**将图片移动到文件`/HairCLIPv2/test_images/src_img`，将`hairclip_v2_demo.ipynb`文件中的测试图片名称改成待测试图片名称。
+
+**运行文件即可**
+
+## 附录
+
+补充文件百度网盘链接：https://pan.baidu.com/s/175KoOY9IfkJl9j-IjhzgBg 提取码：ppta 
+]]></content>
+      <categories>
+        <category>论文复现</category>
+      </categories>
+      <tags>
+        <tag>ICCV</tag>
       </tags>
   </entry>
   <entry>

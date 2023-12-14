@@ -20,29 +20,28 @@
 
 <script class="next-config" data-name="main" type="application/json">{"hostname":"blog.maihm6.com","root":"/","images":"/images","scheme":"Mist","darkmode":true,"version":"8.17.1","exturl":false,"sidebar":{"position":"left","display":"always","padding":18,"offset":12},"copycode":{"enable":true,"style":null},"bookmark":{"enable":false,"color":"#222","save":"auto"},"mediumzoom":false,"lazyload":false,"pangu":false,"comments":{"style":"tabs","active":null,"storage":true,"lazyload":false,"nav":null},"stickytabs":false,"motion":{"enable":true,"async":false,"transition":{"menu_item":"fadeInDown","post_block":"fadeIn","post_header":"fadeInDown","post_body":"fadeInDown","coll_header":"fadeInLeft","sidebar":"fadeInUp"}},"prism":false,"i18n":{"placeholder":"搜索...","empty":"没有找到任何搜索结果：${query}","hits_time":"找到 ${hits} 个搜索结果（用时 ${time} 毫秒）","hits":"找到 ${hits} 个搜索结果"},"path":"/search.xml","localsearch":{"enable":true,"trigger":"auto","top_n_per_article":1,"unescape":false,"preload":false}}</script><script src="/js/config.js"></script>
 
-    <meta name="description" content="待补充">
+    <meta name="description" content="[paper] [code]">
 <meta property="og:type" content="article">
-<meta property="og:title" content="使用Hexo+Next搭建个人博客">
-<meta property="og:url" content="https://blog.maihm6.com/2023/03/03/Hexo_Next/index.html">
+<meta property="og:title" content="HairCLIPv2（ICCV2023）华为云复现教程">
+<meta property="og:url" content="https://blog.maihm6.com/2023/12/14/HairCLIPv2/index.html">
 <meta property="og:site_name" content="喜欢紫霞">
-<meta property="og:description" content="待补充">
+<meta property="og:description" content="[paper] [code]">
 <meta property="og:locale" content="zh_CN">
-<meta property="article:published_time" content="2023-03-02T17:48:00.000Z">
-<meta property="article:modified_time" content="2023-07-18T02:37:36.143Z">
+<meta property="article:published_time" content="2023-12-14T11:10:24.000Z">
+<meta property="article:modified_time" content="2023-12-14T11:16:58.211Z">
 <meta property="article:author" content="Huaming">
-<meta property="article:tag" content="Hexo">
-<meta property="article:tag" content="Next">
+<meta property="article:tag" content="ICCV">
 <meta name="twitter:card" content="summary">
 
 
-<link rel="canonical" href="https://blog.maihm6.com/2023/03/03/Hexo_Next/">
+<link rel="canonical" href="https://blog.maihm6.com/2023/12/14/HairCLIPv2/">
 
 
 
-<script class="next-config" data-name="page" type="application/json">{"sidebar":"","isHome":false,"isPost":true,"lang":"zh-CN","comments":true,"permalink":"https://blog.maihm6.com/2023/03/03/Hexo_Next/","path":"2023/03/03/Hexo_Next/","title":"使用Hexo+Next搭建个人博客"}</script>
+<script class="next-config" data-name="page" type="application/json">{"sidebar":"","isHome":false,"isPost":true,"lang":"zh-CN","comments":true,"permalink":"https://blog.maihm6.com/2023/12/14/HairCLIPv2/","path":"2023/12/14/HairCLIPv2/","title":"HairCLIPv2（ICCV2023）华为云复现教程"}</script>
 
 <script class="next-config" data-name="calendar" type="application/json">""</script>
-<title>使用Hexo+Next搭建个人博客 | 喜欢紫霞</title>
+<title>HairCLIPv2（ICCV2023）华为云复现教程 | 喜欢紫霞</title>
   
 
 
@@ -55,7 +54,119 @@
   <noscript>
     <link rel="stylesheet" href="/css/noscript.css">
   </noscript>
-<link rel="alternate" href="/atom.xml" title="喜欢紫霞" type="application/atom+xml">
+<style>mjx-container[jax="SVG"] {
+  direction: ltr;
+}
+
+mjx-container[jax="SVG"] > svg {
+  overflow: visible;
+}
+
+mjx-container[jax="SVG"][display="true"] {
+  display: block;
+  text-align: center;
+  margin: 1em 0;
+}
+
+mjx-container[jax="SVG"][justify="left"] {
+  text-align: left;
+}
+
+mjx-container[jax="SVG"][justify="right"] {
+  text-align: right;
+}
+
+g[data-mml-node="merror"] > g {
+  fill: red;
+  stroke: red;
+}
+
+g[data-mml-node="merror"] > rect[data-background] {
+  fill: yellow;
+  stroke: none;
+}
+
+g[data-mml-node="mtable"] > line[data-line] {
+  stroke-width: 70px;
+  fill: none;
+}
+
+g[data-mml-node="mtable"] > rect[data-frame] {
+  stroke-width: 70px;
+  fill: none;
+}
+
+g[data-mml-node="mtable"] > .mjx-dashed {
+  stroke-dasharray: 140;
+}
+
+g[data-mml-node="mtable"] > .mjx-dotted {
+  stroke-linecap: round;
+  stroke-dasharray: 0,140;
+}
+
+g[data-mml-node="mtable"] > svg {
+  overflow: visible;
+}
+
+[jax="SVG"] mjx-tool {
+  display: inline-block;
+  position: relative;
+  width: 0;
+  height: 0;
+}
+
+[jax="SVG"] mjx-tool > mjx-tip {
+  position: absolute;
+  top: 0;
+  left: 0;
+}
+
+mjx-tool > mjx-tip {
+  display: inline-block;
+  padding: .2em;
+  border: 1px solid #888;
+  font-size: 70%;
+  background-color: #F8F8F8;
+  color: black;
+  box-shadow: 2px 2px 5px #AAAAAA;
+}
+
+g[data-mml-node="maction"][data-toggle] {
+  cursor: pointer;
+}
+
+mjx-status {
+  display: block;
+  position: fixed;
+  left: 1em;
+  bottom: 1em;
+  min-width: 25%;
+  padding: .2em .4em;
+  border: 1px solid #888;
+  font-size: 90%;
+  background-color: #F8F8F8;
+  color: black;
+}
+
+foreignObject[data-mjx-xml] {
+  font-family: initial;
+  line-height: normal;
+  overflow: visible;
+}
+
+.MathJax path {
+  stroke-width: 3;
+}
+
+mjx-container[display="true"] {
+  overflow: auto hidden;
+}
+
+mjx-container[display="true"] + br {
+  display: none;
+}
+</style><link rel="alternate" href="/atom.xml" title="喜欢紫霞" type="application/atom+xml">
 </head>
 
 <body itemscope itemtype="http://schema.org/WebPage" class="use-motion">
@@ -129,7 +240,7 @@
   
   <aside class="sidebar">
 
-    <div class="sidebar-inner sidebar-overview-active">
+    <div class="sidebar-inner sidebar-nav-active sidebar-toc-active">
       <ul class="sidebar-nav">
         <li class="sidebar-nav-toc">
           文章目录
@@ -142,6 +253,7 @@
       <div class="sidebar-panel-container">
         <!--noindex-->
         <div class="post-toc-wrap sidebar-panel">
+            <div class="post-toc animated"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#%E9%85%8D%E7%BD%AE%E7%8E%AF%E5%A2%83"><span class="nav-text">配置环境</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#%E5%8D%8E%E4%B8%BA%E4%BA%91%E9%85%8D%E7%BD%AE"><span class="nav-text">华为云配置</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E4%B8%8B%E8%BD%BD%E4%BB%A3%E7%A0%81"><span class="nav-text">下载代码</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E9%85%8D%E7%BD%AE%E7%8E%AF%E5%A2%83-1"><span class="nav-text">配置环境</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E5%B0%86%E8%BF%90%E8%A1%8C%E8%BF%87%E7%A8%8B%E4%B8%AD%E9%9C%80%E8%A6%81%E7%9A%84%E6%96%87%E4%BB%B6%E6%8F%90%E5%89%8D%E6%94%BE%E5%88%B0%E6%8C%87%E5%AE%9A%E6%96%87%E4%BB%B6%E5%A4%B9"><span class="nav-text">将运行过程中需要的文件提前放到指定文件夹</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E5%B0%86%E9%A2%84%E8%AE%AD%E7%BB%83%E6%A8%A1%E5%9E%8B%E6%94%BE%E5%9C%A8%E6%96%87%E4%BB%B6%E5%A4%B9pretrained_models%E4%B8%8B"><span class="nav-text">将预训练模型放在文件夹pretrained_models下</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E8%BF%90%E8%A1%8C%E4%BB%A3%E7%A0%81"><span class="nav-text">运行代码</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E9%99%84%E5%BD%95"><span class="nav-text">附录</span></a></li></ol></div>
         </div>
         <!--/noindex-->
 
@@ -220,7 +332,7 @@
   
 
   <article itemscope itemtype="http://schema.org/Article" class="post-content" lang="zh-CN">
-    <link itemprop="mainEntityOfPage" href="https://blog.maihm6.com/2023/03/03/Hexo_Next/">
+    <link itemprop="mainEntityOfPage" href="https://blog.maihm6.com/2023/12/14/HairCLIPv2/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="image" content="/images/avatar.jpg">
@@ -233,12 +345,12 @@
     </span>
 
     <span hidden itemprop="post" itemscope itemtype="http://schema.org/CreativeWork">
-      <meta itemprop="name" content="使用Hexo+Next搭建个人博客 | 喜欢紫霞">
+      <meta itemprop="name" content="HairCLIPv2（ICCV2023）华为云复现教程 | 喜欢紫霞">
       <meta itemprop="description" content="">
     </span>
       <header class="post-header">
         <h1 class="post-title" itemprop="name headline">
-          使用Hexo+Next搭建个人博客
+          HairCLIPv2（ICCV2023）华为云复现教程
         </h1>
 
         <div class="post-meta-container">
@@ -248,15 +360,9 @@
         <i class="far fa-calendar"></i>
       </span>
       <span class="post-meta-item-text">发表于</span>
+      
 
-      <time title="创建时间：2023-03-03 01:48:00" itemprop="dateCreated datePublished" datetime="2023-03-03T01:48:00+08:00">2023-03-03</time>
-    </span>
-    <span class="post-meta-item">
-      <span class="post-meta-item-icon">
-        <i class="far fa-calendar-check"></i>
-      </span>
-      <span class="post-meta-item-text">更新于</span>
-      <time title="修改时间：2023-07-18 10:37:36" itemprop="dateModified" datetime="2023-07-18T10:37:36+08:00">2023-07-18</time>
+      <time title="创建时间：2023-12-14 19:10:24 / 修改时间：19:16:58" itemprop="dateCreated datePublished" datetime="2023-12-14T19:10:24+08:00">2023-12-14</time>
     </span>
     <span class="post-meta-item">
       <span class="post-meta-item-icon">
@@ -264,7 +370,7 @@
       </span>
       <span class="post-meta-item-text">分类于</span>
         <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-          <a href="/categories/%E6%8A%80%E6%9C%AF%E5%88%86%E4%BA%AB/" itemprop="url" rel="index"><span itemprop="name">技术分享</span></a>
+          <a href="/categories/%E8%AE%BA%E6%96%87%E5%A4%8D%E7%8E%B0/" itemprop="url" rel="index"><span itemprop="name">论文复现</span></a>
         </span>
     </span>
 
@@ -277,9 +383,47 @@
     
     
     
-    <div class="post-body" itemprop="articleBody"><p>待补充</p>
+    <div class="post-body" itemprop="articleBody"><p>[<a target="_blank" rel="noopener" href="https://openaccess.thecvf.com/content/ICCV2023/papers/Wei_HairCLIPv2_Unifying_Hair_Editing_via_Proxy_Feature_Blending_ICCV_2023_paper.pdf">paper</a>]
+[<a target="_blank" rel="noopener" href="https://github.com/wty-ustc/HairCLIPv2">code</a>]</p>
 <span id="more"></span>
-<p>待补充</p>
+<h2 id="配置环境">配置环境</h2>
+<h3 id="华为云配置"><strong>华为云配置</strong></h3>
+<p>pytorch1.10-cuda10.2-cudnn7-ubuntu18.04 <strong>GPU</strong></p>
+<h3 id="下载代码"><strong>下载代码</strong></h3>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">git init</span><br><span class="line"></span><br><span class="line">git clone https://github.com/wty-ustc/HairCLIPv2.git</span><br></pre></td></tr></table></figure>
+<h3 id="配置环境-1"><strong>配置环境</strong></h3>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">cd HairCLIPv2 # 进入到文件夹HairCLIPv2下</span><br><span class="line"></span><br><span class="line">pip install ftfy regex tqdm matplotlib jupyter ipykernel opencv-python scikit-image kornia==0.6.7 face-alignment==1.3.5 dlib==19.22.1</span><br><span class="line"></span><br><span class="line">pip install git+https://github.com/openai/CLIP.git</span><br><span class="line"></span><br><span class="line">pip install Ninja</span><br></pre></td></tr></table></figure>
+<h3 id="将运行过程中需要的文件提前放到指定文件夹"><strong>将运行过程中需要的文件提前放到指定文件夹</strong></h3>
+<p>因为华为云只能打开文件夹<code>/home/ma-user/work</code>，但是这些文件要放置在文件夹<code>/home/ma-user/.cache/torch/hub/checkpoints</code>下。因此，只能通过终端移动</p>
+<p>创建一个新文件夹放置这些文件</p>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">mkdir Model_Weight</span><br><span class="line"></span><br><span class="line">cd Model_Weight</span><br></pre></td></tr></table></figure>
+<p>将下面文件（附录补充提供了百度网盘链接）上传到文件夹<code>/HairCLIPv2/Model_Weight</code>中</p>
+<p>resnet18-5c106cde.pth</p>
+<p>vgg16-397923af.pth</p>
+<p>s3fd-619a316812.pth</p>
+<p>3DFAN4-4a694010b9.zip</p>
+<p>depth-6c4283c0e0.zip</p>
+<p>运行下面代码将所有文件复制到指定文件夹</p>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">cp * /home/ma-user/.cache/torch/hub/checkpoints/</span><br></pre></td></tr></table></figure>
+<p>Note：可能会显示目标文件夹不存在，这时候先运行文件<code>hairclip_v2_demo.ipynb</code>来产生目标文件。</p>
+<h3 id="将预训练模型放在文件夹pretrained_models下"><strong>将预训练模型放在文件夹pretrained_models下</strong></h3>
+<p>bald_proxy.pt</p>
+<p>ffhq.pt</p>
+<p>seg.pth</p>
+<p>shape_predictor_68_face_landmarks.dat</p>
+<p>sketch_proxy.pt</p>
+<p>直接上传即可</p>
+<h2 id="运行代码">运行代码</h2>
+<p>打开<code>hairclip_v2_demo.ipynb</code>，选择内核<code>PyTorch-1.10.2</code>，点击运行即可</p>
+<p><strong>若想测试其他图片</strong></p>
+<p><strong>首先将图片对齐。</strong>将jpg格式的图片上传至文件<code>/HairCLIPv2/test_images/unaligned_img</code>，运行代码</p>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">python scripts/align_face.py</span><br></pre></td></tr></table></figure>
+<p>运行结束后在文件夹<code>/HairCLIPv2/test_images/aligned_img</code>中得到已对齐的图片。</p>
+<p><strong>把对齐图片放到源文件中。</strong>将图片移动到文件<code>/HairCLIPv2/test_images/src_img</code>，将<code>hairclip_v2_demo.ipynb</code>文件中的测试图片名称改成待测试图片名称。</p>
+<p><strong>运行文件即可</strong></p>
+<h2 id="附录">附录</h2>
+<p>补充文件百度网盘链接：https://pan.baidu.com/s/175KoOY9IfkJl9j-IjhzgBg
+提取码：ppta</p>
 
     </div>
 
@@ -297,7 +441,7 @@
   </li>
   <li class="post-copyright-link">
       <strong>本文链接：</strong>
-      <a href="https://blog.maihm6.com/2023/03/03/Hexo_Next/" title="使用Hexo+Next搭建个人博客">https://blog.maihm6.com/2023/03/03/Hexo_Next/</a>
+      <a href="https://blog.maihm6.com/2023/12/14/HairCLIPv2/" title="HairCLIPv2（ICCV2023）华为云复现教程">https://blog.maihm6.com/2023/12/14/HairCLIPv2/</a>
   </li>
   <li class="post-copyright-license">
       <strong>版权声明： </strong>本博客所有文章除特别声明外，均采用 <a href="https://creativecommons.org/licenses/by-nc-sa/4.0/deed.zh" rel="noopener" target="_blank"><i class="fab fa-fw fa-creative-commons"></i>BY-NC-SA</a> 许可协议。转载请注明出处！
@@ -306,19 +450,18 @@
 </div>
 
           <div class="post-tags">
-              <a href="/tags/Hexo/" rel="tag"># Hexo</a>
-              <a href="/tags/Next/" rel="tag"># Next</a>
+              <a href="/tags/ICCV/" rel="tag"># ICCV</a>
           </div>
 
         
 
           <div class="post-nav">
             <div class="post-nav-item">
+                <a href="/2023/07/17/Two-Sum/" rel="prev" title="Two-Sum Protocol">
+                  <i class="fa fa-chevron-left"></i> Two-Sum Protocol
+                </a>
             </div>
             <div class="post-nav-item">
-                <a href="/2023/03/03/test1/" rel="next" title="test1">
-                  test1 <i class="fa fa-chevron-right"></i>
-                </a>
             </div>
           </div>
     </footer>
@@ -388,7 +531,7 @@
 
   
 
-  <script class="next-config" data-name="enableMath" type="application/json">false</script><script class="next-config" data-name="mathjax" type="application/json">{"enable":true,"tags":"ams","js":{"url":"https://cdnjs.cloudflare.com/ajax/libs/mathjax/3.2.2/es5/tex-mml-chtml.js","integrity":"sha256-MASABpB4tYktI2Oitl4t+78w/lyA+D7b/s9GEP0JOGI="}}</script>
+  <script class="next-config" data-name="enableMath" type="application/json">true</script><script class="next-config" data-name="mathjax" type="application/json">{"enable":true,"tags":"ams","js":{"url":"https://cdnjs.cloudflare.com/ajax/libs/mathjax/3.2.2/es5/tex-mml-chtml.js","integrity":"sha256-MASABpB4tYktI2Oitl4t+78w/lyA+D7b/s9GEP0JOGI="}}</script>
 <script src="/js/third-party/math/mathjax.js"></script>
 
 
