@@ -34,6 +34,7 @@
       <textarea id="plainText" placeholder="请输入要加密的内容（如 abc 或 你好）"></textarea>
       <div class="buttons">
         <button onclick="doEncrypt()">加密</button>
+        <button onclick="clearText('plainText')">清空</button>
       </div>
     </div>
 
@@ -42,6 +43,7 @@
       <textarea id="cipherOutput" placeholder="加密后的密文会显示在这里"></textarea>
       <div class="buttons">
         <button onclick="copyToClipboard('cipherOutput', this)">复制密文</button>
+        <button onclick="clearText('cipherOutput')">清空</button>
       </div>
     </div>
 
@@ -50,6 +52,7 @@
       <textarea id="cipherInput" placeholder="请粘贴要解密的密文"></textarea>
       <div class="buttons">
         <button onclick="doDecrypt()">解密</button>
+        <button onclick="clearText('cipherInput')">清空</button>
       </div>
     </div>
 
@@ -58,6 +61,7 @@
       <textarea id="decryptedText" placeholder="解密结果会显示在这里"></textarea>
       <div class="buttons">
         <button onclick="copyToClipboard('decryptedText', this)">复制明文</button>
+        <button onclick="clearText('decryptedText')">清空</button>
       </div>
     </div>
 
@@ -98,7 +102,6 @@ lVU+hxWkDIPd06XslMldqnKAR/A+QY20/o97TE8XbHg=
   </div>
 
 <script>
-  // 读取固定密钥
   const publicKeyPEM = document.getElementById('publicKey').value.trim();
   const privateKeyPEM = document.getElementById('privateKey').value.trim();
 
@@ -128,7 +131,6 @@ lVU+hxWkDIPd06XslMldqnKAR/A+QY20/o97TE8XbHg=
     document.getElementById('decryptedText').value = result;
   }
 
-  // 复制到剪贴板（无弹窗，按钮文字短暂变更）
   function copyToClipboard(id, btn) {
     const ta = document.getElementById(id);
     ta.select();
@@ -136,6 +138,11 @@ lVU+hxWkDIPd06XslMldqnKAR/A+QY20/o97TE8XbHg=
     const original = btn.textContent;
     btn.textContent = '已复制';
     setTimeout(() => btn.textContent = original, 1000);
+  }
+
+  function clearText(id) {
+    const ta = document.getElementById(id);
+    if (ta) ta.value = '';
   }
 </script>
 
