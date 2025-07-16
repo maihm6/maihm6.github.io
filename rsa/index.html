@@ -8,7 +8,7 @@
     * { box-sizing: border-box; margin: 0; padding: 0; }
     body { font-family: 'Segoe UI', Tahoma, sans-serif; background: #f0f2f5; color: #333; }
     .container { max-width:900px; margin:40px auto; padding:0 20px; }
-    h1 { text-align:center; margin-bottom:30px; color:#444; }
+    h1 { text-align:center; margin-bottom:10px; color:#444; }
     .key-size { text-align:right; font-weight:bold; margin-bottom:10px; color:#666; }
     .section { background:#fff; border-radius:8px; padding:20px; margin-bottom:20px; box-shadow:0 2px 8px rgba(0,0,0,0.05); }
     .section h2 { margin-bottom:15px; font-size:1.2em; color:#555; border-bottom:1px solid #eee; padding-bottom:8px; }
@@ -17,70 +17,65 @@
     button { background:#4a90e2; color:#fff; border:none; border-radius:4px; padding:8px 16px; font-size:0.95em; cursor:pointer; transition:background 0.2s; }
     button:hover { background:#357ab8; }
     button + button { margin-left:10px; }
-    .key-blocks { display:flex; gap:20px; flex-wrap:wrap; }
-    .key-card { flex:1 1 45%; display:flex; flex-direction:column; }
-    .key-card textarea { height:140px; }
-    .key-card button { align-self:flex-end; margin-top:8px; }
+    .clear-all { text-align: center; margin-bottom: 20px; }
   </style>
 </head>
 <body>
 
-  <div class="container">
-    <h1>🔐 RSA 固定密钥 加解密</h1>
-    <div class="key-size">🔑 当前密钥位数：1024 bits</div>
+<div class="container">
+  <h1>🔐 兄弟子专属加密工具</h1>
 
-    <div class="section">
-      <h2>明文输入</h2>
-      <textarea id="plainText" placeholder="请输入要加密的内容（如 abc 或 你好）"></textarea>
-      <div class="buttons">
-        <button onclick="doEncrypt()">加密</button>
-        <button onclick="clearText('plainText')">清空</button>
-      </div>
+  <div class="clear-all">
+    <button onclick="clearAll()">🧹 清空全部文本框</button>
+  </div>
+
+  <div class="key-size">🔑 当前密钥位数：1024 bits</div>
+
+  <div class="section">
+    <h2>明文输入</h2>
+    <textarea id="plainText" placeholder="请输入要加密的内容"></textarea>
+    <div class="buttons">
+      <button onclick="doEncrypt()">加密</button>
+      <button onclick="clearText('plainText')">清空</button>
     </div>
+  </div>
 
-    <div class="section">
-      <h2>密文输出（Base64）</h2>
-      <textarea id="cipherOutput" placeholder="加密后的密文会显示在这里"></textarea>
-      <div class="buttons">
-        <button onclick="copyToClipboard('cipherOutput', this)">复制密文</button>
-        <button onclick="clearText('cipherOutput')">清空</button>
-      </div>
+  <div class="section">
+    <h2>密文输出（Base64）</h2>
+    <textarea id="cipherOutput" placeholder="加密后的密文会显示在这里" readonly></textarea>
+    <div class="buttons">
+      <button onclick="copyToClipboard('cipherOutput', this)">复制密文</button>
     </div>
+  </div>
 
-    <div class="section">
-      <h2>密文输入</h2>
-      <textarea id="cipherInput" placeholder="请粘贴要解密的密文"></textarea>
-      <div class="buttons">
-        <button onclick="doDecrypt()">解密</button>
-        <button onclick="clearText('cipherInput')">清空</button>
-      </div>
+  <div class="section">
+    <h2>密文输入</h2>
+    <textarea id="cipherInput" placeholder="请粘贴要解密的密文"></textarea>
+    <div class="buttons">
+      <button onclick="doDecrypt()">解密</button>
+      <button onclick="clearText('cipherInput')">清空</button>
     </div>
+  </div>
 
-    <div class="section">
-      <h2>解密输出（明文）</h2>
-      <textarea id="decryptedText" placeholder="解密结果会显示在这里"></textarea>
-      <div class="buttons">
-        <button onclick="copyToClipboard('decryptedText', this)">复制明文</button>
-        <button onclick="clearText('decryptedText')">清空</button>
-      </div>
+  <div class="section">
+    <h2>解密输出（明文）</h2>
+    <textarea id="decryptedText" placeholder="解密结果会显示在这里" readonly></textarea>
+    <div class="buttons">
+      <button onclick="copyToClipboard('decryptedText', this)">复制明文</button>
     </div>
+  </div>
+</div>
 
-    <div class="section">
-      <h2>固定的公钥 / 私钥</h2>
-      <div class="key-blocks">
-        <div class="key-card">
-          <strong>公钥：</strong>
-          <textarea id="publicKey" readonly>-----BEGIN PUBLIC KEY-----
+<script>
+  // 固定的公钥和私钥（保存在 JS 变量中，不显示在页面）
+  const publicKeyPEM = `-----BEGIN PUBLIC KEY-----
 MIGfMA0GCSqGSIb3DQEBAQUAA4GNADCBiQKBgQC+9i5HpVULuzTmheEwqv+zzwz3
 W+fZcU7tYxhAt5tQQNwa+kRY1k0UeIpPmdI5dW2VDFn2sjRr/vi7ZvkumQAKvyWA
 bi+oys3bFzbtS5LzYXW/z2SyeIHI0JA84rj8WPcOb2pm+7Yh8smF1AiodfDCJPGY
 P+goniNFykd5skTcUQIDAQAB
------END PUBLIC KEY-----</textarea>
-          <button onclick="copyToClipboard('publicKey', this)">复制公钥</button>
-        </div>
-        <div class="key-card">
-          <strong>私钥：</strong>
-          <textarea id="privateKey" readonly>-----BEGIN RSA PRIVATE KEY-----
+-----END PUBLIC KEY-----`;
+
+  const privateKeyPEM = `-----BEGIN RSA PRIVATE KEY-----
 MIICXAIBAAKBgQC+9i5HpVULuzTmheEwqv+zzwz3W+fZcU7tYxhAt5tQQNwa+kRY
 1k0UeIpPmdI5dW2VDFn2sjRr/vi7ZvkumQAKvyWAbi+oys3bFzbtS5LzYXW/z2Sy
 eIHI0JA84rj8WPcOb2pm+7Yh8smF1AiodfDCJPGYP+goniNFykd5skTcUQIDAQAB
@@ -94,40 +89,43 @@ MqCB5nzBAkEA0yTmoAfb0hgZURO03SHAQWf7lyOCza09oECmDwhG0fexTgx0xl/7
 N52F+D8OyUAgXe+pTGbk9NK8NFvr+j4FzJnzGSk2WzSryNIuy8uL+vYVBCRlMmWr
 4obD7TXnfOItxuyg01ECQGt14o5eUyXRnhl/wzaNyLqnlFUBbUgqkS0c1lb3yOWx
 lVU+hxWkDIPd06XslMldqnKAR/A+QY20/o97TE8XbHg=
------END RSA PRIVATE KEY-----</textarea>
-          <button onclick="copyToClipboard('privateKey', this)">复制私钥</button>
-        </div>
-      </div>
-    </div>
-  </div>
-
-<script>
-  const publicKeyPEM = document.getElementById('publicKey').value.trim();
-  const privateKeyPEM = document.getElementById('privateKey').value.trim();
+-----END RSA PRIVATE KEY-----`;
 
   function doEncrypt() {
     const plain = document.getElementById('plainText').value;
-    if (!plain) { alert('请输入明文'); return; }
+    if (!plain) {
+      alert('请输入明文');
+      return;
+    }
+
     const encryptor = new JSEncrypt({ default_key_size: 1024 });
     encryptor.setPublicKey(publicKeyPEM);
     const cipher = encryptor.encrypt(plain);
+
     if (!cipher) {
       alert('加密失败：文本过长或公钥格式错误');
       return;
     }
+
     document.getElementById('cipherOutput').value = cipher;
   }
 
   function doDecrypt() {
     const cipher = document.getElementById('cipherInput').value.trim();
-    if (!cipher) { alert('请输入密文'); return; }
+    if (!cipher) {
+      alert('请输入密文');
+      return;
+    }
+
     const decryptor = new JSEncrypt();
     decryptor.setPrivateKey(privateKeyPEM);
     const result = decryptor.decrypt(cipher);
+
     if (result === false) {
       alert('解密失败：密文或私钥不匹配');
       return;
     }
+
     document.getElementById('decryptedText').value = result;
   }
 
@@ -143,6 +141,15 @@ lVU+hxWkDIPd06XslMldqnKAR/A+QY20/o97TE8XbHg=
   function clearText(id) {
     const ta = document.getElementById(id);
     if (ta) ta.value = '';
+
+    // 同步清空输出框
+    if (id === 'plainText') document.getElementById('cipherOutput').value = '';
+    if (id === 'cipherInput') document.getElementById('decryptedText').value = '';
+  }
+
+  function clearAll() {
+    clearText('plainText');
+    clearText('cipherInput');
   }
 </script>
 
